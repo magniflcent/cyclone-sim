@@ -217,7 +217,7 @@ ENV_DEFS.defaults.ULSteering = {
     vector: true,
     magMap: [0,8,0,25],
     modifiers: {
-        hadleyUpperBound: -5
+        hadleyUpperBound: 0
     },
     noiseChannels: [
         [4,0.5,180,300,1,2],
@@ -276,7 +276,7 @@ ENV_DEFS.defaults.shear = {
     version: 0,
     mapFunc: (u,x,y,z)=>{
         let ll = u.field('LLSteering');
-        let ul = u.field('ULSteering');
+        let ul = u.field('LLSteering');
         u.vec.set(ul);
         u.vec.sub(ll);
         return u.vec;

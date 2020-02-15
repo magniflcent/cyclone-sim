@@ -246,7 +246,7 @@ Scale.saffirSimpson = new Scale({
         },
         {
             threshold: 34,
-            color: ['rgb(20,230,20)','#00faf4','#00AF00'],
+            color: ['rgb(20,230,20)','#00faf4','#00F000'],
             subtropicalColor: ['rgb(60,220,60)','#00faf4','#94F097'],
             symbol: 'S',
             stormNom: 'Tropical Storm',
@@ -318,7 +318,7 @@ Scale.extendedSaffirSimpson = new Scale({
         },
         {
             threshold: 34,
-            color: ['rgb(20,230,20)','#00faf4','#00AF00'],
+            color: ['rgb(20,230,20)','#00faf4','#00F000'],
             subtropicalColor: ['rgb(60,220,60)','#00faf4','#94F097'],
             symbol: 'S',
             stormNom: 'Tropical Storm',
@@ -430,7 +430,7 @@ Scale.australian = new Scale({
         },
         {
             threshold: 34,
-            color: ['rgb(20,230,20)','#00faf4','#00AF00'],
+            color: ['rgb(20,230,20)','#00faf4','#00F000'],
             subtropicalColor: ['rgb(60,220,60)','#00faf4','#94F097'],
             symbol: '1',
             stormNom: 'Tropical Cyclone',
@@ -489,7 +489,7 @@ Scale.typhoonCommittee = new Scale({
         },
         {
             threshold: 34,
-            color: ['rgb(20,230,20)','#00faf4','#00AF00'],
+            color: ['rgb(20,230,20)','#00faf4','#00F000'],
             subtropicalColor: ['rgb(60,220,60)','#00faf4','#94F097'],
             symbol: 'S',
             stormNom: 'Tropical Storm',
@@ -548,7 +548,7 @@ Scale.IMD = new Scale({
         },
         {
             threshold: 34,
-            color: ['rgb(20,230,20)','#00faf4','#00AF00'],
+            color: ['rgb(20,230,20)','#00faf4','#00F000'],
             subtropicalColor: ['rgb(60,220,60)','#00faf4','#94F097'],
             symbol: 'CS',
             subtropicalSymbol: 'SS',
@@ -626,7 +626,7 @@ Scale.southwestIndianOcean = new Scale({
         },
         {
             threshold: 34,
-            color: ['rgb(20,230,20)','#00faf4','#00AF00'],
+            color: ['rgb(20,230,20)','#00faf4','#00F000'],
             subtropicalColor: ['rgb(60,220,60)','#00faf4','#94F097'],
             symbol: 'MTS',
             subtropicalSymbol: 'MSS',

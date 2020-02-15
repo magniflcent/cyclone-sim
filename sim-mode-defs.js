@@ -275,7 +275,7 @@ ENV_DEFS[SIM_MODE_EXPERIMENTAL].ULSteering = {};
 ENV_DEFS.defaults.shear = {
     version: 0,
     mapFunc: (u,x,y,z)=>{
-        let ll = u.field('ULSteering');
+        let ll = u.field('LLSteering');
         let ul = 0;
         u.vec.set(ul);
         u.vec.sub(ll);

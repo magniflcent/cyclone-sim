@@ -681,6 +681,6 @@ class Land{
 }
 
 function seasonalSine(t,off){
-    off = off===undefined ? 12/12 : off;
+    off = off===undefined ? 12/2 : off;
     return sin((TAU*(t-YEAR_LENGTH*off))/YEAR_LENGTH);
 }

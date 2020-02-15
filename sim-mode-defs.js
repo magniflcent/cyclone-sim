@@ -276,7 +276,7 @@ ENV_DEFS.defaults.shear = {
     version: 0,
     mapFunc: (u,x,y,z)=>{
         let ll = u.field('ULSteering');
-        let ul = u.field('LLSteering');
+        let ul = 0;
         u.vec.set(ul);
         u.vec.sub(ll);
         return u.vec;

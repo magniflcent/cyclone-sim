@@ -217,7 +217,7 @@ ENV_DEFS.defaults.ULSteering = {
     vector: true,
     magMap: [0,8,0,25],
     modifiers: {
-        hadleyUpperBound: 0.75
+        hadleyUpperBound: 1
     },
     noiseChannels: [
         [4,0.5,180,300,1,2],
@@ -298,7 +298,7 @@ ENV_DEFS.defaults.SSTAnomaly = {
     mapFunc: (u,x,y,z)=>{
         let v = u.noise(0);
         v = v*2;
-        let i = v<1 ? -0.75 : 0.75;
+        let i = v<1 ? -1 : 1;
         v = 1-abs(1-v);
         if(v===0) v = 0.000001;
         v = log(v);

@@ -298,7 +298,7 @@ ENV_DEFS.defaults.SSTAnomaly = {
     mapFunc: (u,x,y,z)=>{
         let v = u.noise(0);
         v = v*2;
-        let i = v<1 ? -1.5 : 1.5;
+        let i = v<1 ? -1.25 : 1.25;
         v = 1-abs(1-v);
         if(v===0) v = 0.000001;
         v = log(v);
@@ -450,7 +450,7 @@ ENV_DEFS.defaults.moisture = {
         return c;
     },
     modifiers: {
-        polarMoisture: 0.43,
+        polarMoisture: 0.62,
         tropicalMoisture: 0.62,
         mountainMoisture: 0.2
     },

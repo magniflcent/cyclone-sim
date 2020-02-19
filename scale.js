@@ -292,7 +292,7 @@ Scale.saffirSimpson = new Scale({
         },
         {
             threshold: 137,
-            color: ['rgb(250,140,250)','#ff6060','#E61964'],
+            color: ['rgb(250,140,250)','#ff6060','#E61932'],
             symbol: '5',
             stat: 'Category 5s',
             cName: 'Category 5'
@@ -364,45 +364,45 @@ Scale.extendedSaffirSimpson = new Scale({
         },
         {
             threshold: 137,
-            color: ['rgb(250,140,250)','#ff6060','#E61964'],
+            color: ['rgb(250,140,250)','#ff6060','#E61932'],
             symbol: '5',
             stat: 'Category 5+',
             cName: 'Category 5'
         },
         {
             threshold: 165,
-            color: ['rgb(250,200,250)','#8b0000','#E619FF'],
+            color: ['rgb(250,200,250)','#8b0000','#E6AFB4'],
             symbol: '6',
             cName: 'Category 6'
         },
         {
             threshold: 198,
-            color: ['rgb(240,90,90)','#cc0033','#E678FF'],
+            color: ['rgb(240,90,90)','#cc0033','#E6E6E6'],
             symbol: '7',
             cName: 'Category 7'
         },
         {
             threshold: 255,
-            color: ['rgb(190,60,60)','#cc0066','#E6C8FF'],
+            color: ['rgb(190,60,60)','#cc0066','#E6AAE6'],
             symbol: '8',
             stat: 'Category 8+',
             cName: 'Category 8'
         },
         {
             threshold: 318,
-            color: ['rgb(130,10,10)','#9B30FF','#E682FF'],
+            color: ['rgb(130,10,10)','#9B30FF','#E673E6'],
             symbol: '9',
             cName: 'Category 9'
         },
         {
             threshold: 378,
-            color: ['rgb(120,10,120)','#F9A7B0','#E64BFF'],
+            color: ['rgb(120,10,120)','#F9A7B0','#E632E6'],
             symbol: '10',
             cName: 'Category 10'
         },
         {
             threshold: 434,
-            color: ['rgb(20,0,140)','#ff99ff','#E600FF'],
+            color: ['rgb(20,0,140)','#ff99ff','#AA00E6'],
             symbol: 'HY',
             stormNom: ['Hypercane','Hyperphoon','Hyperclone'],
             stat: ['Hypercanes','Hyperphoons','Hyperclones'],
@@ -462,7 +462,7 @@ Scale.australian = new Scale({
         },
         {
             threshold: 108,
-            color: ['rgb(250,140,250)','#ff6060','#E61964'],
+            color: ['rgb(250,140,250)','#ff6060','#E61932'],
             symbol: '5',
             stat: 'Category 5s',
             cName: 'Category 5'
@@ -586,7 +586,7 @@ Scale.IMD = new Scale({
         },
         {
             threshold: 120,
-            color: ['rgb(250,140,250)','#ff6060','#E61964'],
+            color: ['rgb(250,140,250)','#ff6060','#E61932'],
             symbol: 'SUCS',
             subtropicalSymbol: 'SUSS',
             stormNom: 'Super Cyclonic Storm',
@@ -668,7 +668,7 @@ Scale.southwestIndianOcean = new Scale({
         },
         {
             threshold: 115,
-            color: ['rgb(250,140,250)','#ff6060','#E61964'],
+            color: ['rgb(250,140,250)','#ff6060','#E61932'],
             symbol: 'VITC',
             subtropicalSymbol: 'VISC',
             stormNom: 'Very Intense Tropical Cyclone',

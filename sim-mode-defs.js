@@ -217,7 +217,7 @@ ENV_DEFS.defaults.ULSteering = {
     vector: true,
     magMap: [0,8,0,25],
     modifiers: {
-        hadleyUpperBound: 0
+        hadleyUpperBound: 0.50
     },
     noiseChannels: [
         [4,0.5,180,300,1,2],

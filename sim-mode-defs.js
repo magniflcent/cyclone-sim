@@ -217,7 +217,7 @@ ENV_DEFS.defaults.ULSteering = {
     vector: true,
     magMap: [0,8,0,25],
     modifiers: {
-        hadleyUpperBound: 1.25
+        hadleyUpperBound: 0.625
     },
     noiseChannels: [
         [4,0.5,180,300,1,2],
@@ -304,7 +304,7 @@ ENV_DEFS.defaults.SSTAnomaly = {
         v = log(v);
         let r;
         if(u.modifiers.r!==undefined) r = u.modifiers.r;
-        else r = 5
+        else r = 4
         v = -r*v;
         v = v*i;
         if(u.modifiers.bigBlobBase!==undefined && v>u.modifiers.bigBlobExponentThreshold) v += pow(u.modifiers.bigBlobBase,v-u.modifiers.bigBlobExponentThreshold)-1;
@@ -385,7 +385,7 @@ ENV_DEFS.defaults.SST = {
     modifiers: {
         offSeasonPolarTemp: -3,
         peakSeasonPolarTemp: 10,
-        offSeasonTropicsTemp: 26.5,
+        offSeasonTropicsTemp: 26.75,
         peakSeasonTropicsTemp: 26.75
     }
 };

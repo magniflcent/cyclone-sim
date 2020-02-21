@@ -217,7 +217,7 @@ ENV_DEFS.defaults.ULSteering = {
     vector: true,
     magMap: [0,8,0,25],
     modifiers: {
-        hadleyUpperBound: 0.625
+        hadleyUpperBound: 0
     },
     noiseChannels: [
         [4,0.5,180,300,1,2],
@@ -451,7 +451,7 @@ ENV_DEFS.defaults.moisture = {
     },
     modifiers: {
         polarMoisture: 0.62,
-        tropicalMoisture: 0.62,
+        tropicalMoisture: 0.72,
         mountainMoisture: 0.2
     },
     noiseChannels: [

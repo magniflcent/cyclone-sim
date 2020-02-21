@@ -298,7 +298,7 @@ ENV_DEFS.defaults.SSTAnomaly = {
     mapFunc: (u,x,y,z)=>{
         let v = u.noise(0);
         v = v*1.8125;
-        let i = v<1 ? -1.125 : 1.125;
+        let i = v<1 ? -1.25 : 1.25;
         v = 1-abs(1-v);
         if(v===0) v = 0.000001;
         v = log(v);
@@ -386,7 +386,7 @@ ENV_DEFS.defaults.SST = {
         offSeasonPolarTemp: -3,
         peakSeasonPolarTemp: 10,
         offSeasonTropicsTemp: 27,
-        peakSeasonTropicsTemp: 27.5
+        peakSeasonTropicsTemp: 27
     }
 };
 ENV_DEFS[SIM_MODE_NORMAL].SST = {};

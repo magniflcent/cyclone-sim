@@ -79,7 +79,7 @@ ENV_DEFS.defaults.jetstream = {
         let s = u.yearfrac(z);
         let l = map(sqrt(map(s,-1,1,0,1)),0,1,highJet?0.47:0.55,highJet?0.25:0.35);
         let r = map(s,-1,1,highJet?0.45:0.5,highJet?0.25:0.35);
-        v = map(v,0,1,-r,r);
+        v = map(v,0,2,-r,r);
         return (l+v)*HEIGHT;
     },
     invisible: true,
@@ -386,7 +386,7 @@ ENV_DEFS.defaults.SST = {
         offSeasonPolarTemp: -3,
         peakSeasonPolarTemp: 10,
         offSeasonTropicsTemp: 26.75,
-        peakSeasonTropicsTemp: 29
+        peakSeasonTropicsTemp: 28
     }
 };
 ENV_DEFS[SIM_MODE_NORMAL].SST = {};

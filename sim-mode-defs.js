@@ -275,7 +275,7 @@ ENV_DEFS[SIM_MODE_EXPERIMENTAL].ULSteering = {};
 ENV_DEFS.defaults.shear = {
     version: 0,
     mapFunc: (u,x,y,z)=>{
-        let ll = 0;
+        let ll = u.field('LLSteering');
         let ul = u.field('ULSteering');
         u.vec.set(ul);
         u.vec.sub(ll);
@@ -298,7 +298,7 @@ ENV_DEFS.defaults.SSTAnomaly = {
     mapFunc: (u,x,y,z)=>{
         let v = u.noise(0);
         v = v*2;
-        let i = v<1 ? -1.5 : 1.5;
+        let i = v<1 ? -1 : 1;
         v = 1-abs(1-v);
         if(v===0) v = 0.000001;
         v = log(v);
@@ -386,7 +386,7 @@ ENV_DEFS.defaults.SST = {
         offSeasonPolarTemp: -3,
         peakSeasonPolarTemp: 10,
         offSeasonTropicsTemp: 26.75,
-        peakSeasonTropicsTemp: 26.75
+        peakSeasonTropicsTemp: 28
     }
 };
 ENV_DEFS[SIM_MODE_NORMAL].SST = {};

@@ -227,7 +227,7 @@ ENV_DEFS.defaults.ULSteering = {
 ENV_DEFS[SIM_MODE_NORMAL].ULSteering = {};
 ENV_DEFS[SIM_MODE_HYPER].ULSteering = {
     modifiers: {
-        hadleyUpperBound: 7
+        hadleyUpperBound: 3
     }
 };
 ENV_DEFS[SIM_MODE_WILD].ULSteering = {
@@ -386,7 +386,7 @@ ENV_DEFS.defaults.SST = {
         offSeasonPolarTemp: -3,
         peakSeasonPolarTemp: 10,
         offSeasonTropicsTemp: 25,
-        peakSeasonTropicsTemp: 28
+        peakSeasonTropicsTemp: 28.5
     }
 };
 ENV_DEFS[SIM_MODE_NORMAL].SST = {};
@@ -450,8 +450,8 @@ ENV_DEFS.defaults.moisture = {
         return c;
     },
     modifiers: {
-        polarMoisture: 0.62,
-        tropicalMoisture: 0.72,
+        polarMoisture: 0.43,
+        tropicalMoisture: 0.57,
         mountainMoisture: 0.2
     },
     noiseChannels: [

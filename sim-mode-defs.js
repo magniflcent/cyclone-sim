@@ -12,7 +12,7 @@ const SIM_MODE_EXPERIMENTAL = 4;
 const SPAWN_RULES = {};
 
 SPAWN_RULES[SIM_MODE_NORMAL] = function(b){
-    if(random()<0.015) b.spawn(false,{x:random(0,WIDTH),y:random(0.4*HEIGHT,0.9*HEIGHT),sType:'l'});           // tropical waves
+    if(random()<0.0225) b.spawn(false,{x:random(0,WIDTH),y:random(0.4*HEIGHT,0.9*HEIGHT),sType:'l'});           // tropical waves
     if(random()<0.01-0.002*seasonalSine(b.tick)) b.spawn(true);                 // extratropical cyclones
 };
 SPAWN_RULES[SIM_MODE_HYPER] = function(b){
@@ -298,7 +298,7 @@ ENV_DEFS.defaults.SSTAnomaly = {
     mapFunc: (u,x,y,z)=>{
         let v = u.noise(0);
         v = v*2;
-        let i = v<1 ? -1.1875 : 1.1875;
+        let i = v<1 ? -1.15 : 1.15;
         v = 1-abs(1-v);
         if(v===0) v = 0.000001;
         v = log(v);

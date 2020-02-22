@@ -75,7 +75,7 @@ ENV_DEFS.defaults.jetstream = {
     version: 0,
     mapFunc: (u,x,y,z)=>{
         let v = u.noise(0,x-z*3,0,z);
-        let highJet = u.modifiers.highJet;
+        let highJet = true;
         let s = seasonalSine(z);
         let l = map(sqrt(map(s,-1,1,0,1)),0,1,highJet?0.47:0.55,highJet?0.25:0.35);
         let r = map(s,-1,1,highJet?0.45:0.5,highJet?0.25:0.35);
@@ -217,7 +217,7 @@ ENV_DEFS.defaults.ULSteering = {
     vector: true,
     magMap: [0,8,0,25],
     modifiers: {
-        hadleyUpperBound: 0
+        hadleyUpperBound: 3
     },
     noiseChannels: [
         [4,0.5,180,300,1,2],

@@ -12,7 +12,7 @@ const SIM_MODE_EXPERIMENTAL = 4;
 const SPAWN_RULES = {};
 
 SPAWN_RULES[SIM_MODE_NORMAL] = function(b){
-    if(random()<0.030) b.spawn(false,{x:random(0,WIDTH),y:random(0.2*HEIGHT,1.05*HEIGHT),sType:'l'});           // tropical waves
+    if(random()<0.030) b.spawn(false,{x:random(0,WIDTH),y:random(0.4*HEIGHT,1.0*HEIGHT),sType:'l'});           // tropical waves
     if(random()<0.01-0.002*seasonalSine(b.tick)) b.spawn(true);                 // extratropical cyclones
 };
 SPAWN_RULES[SIM_MODE_HYPER] = function(b){
@@ -130,7 +130,7 @@ ENV_DEFS.defaults.LLSteering = {
         // noise angle
         let a = map(u.noise(3),0,1,0,4*TAU);
         // noise magnitude
-        let m = pow(1.25,map(u.noise(2),0,1,-8,4));
+        let m = pow(1.5,map(u.noise(2),0,1,-8,4));
 
         // apply to vector
         u.vec.rotate(a);
@@ -298,7 +298,7 @@ ENV_DEFS.defaults.SSTAnomaly = {
     mapFunc: (u,x,y,z)=>{
         let v = u.noise(0);
         v = v*2;
-        let i = v<1 ? -1 : 1;
+        let i = v<1 ? -1.125 : 1.125;
         v = 1-abs(1-v);
         if(v===0) v = 0.000001;
         v = log(v);

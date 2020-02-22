@@ -217,7 +217,7 @@ ENV_DEFS.defaults.ULSteering = {
     vector: true,
     magMap: [0,8,0,25],
     modifiers: {
-        hadleyUpperBound: 5
+        hadleyUpperBound: 0
     },
     noiseChannels: [
         [4,0.5,180,300,1,2],
@@ -386,7 +386,7 @@ ENV_DEFS.defaults.SST = {
         offSeasonPolarTemp: -3,
         peakSeasonPolarTemp: 10,
         offSeasonTropicsTemp: 26.75,
-        peakSeasonTropicsTemp: 28
+        peakSeasonTropicsTemp: 29
     }
 };
 ENV_DEFS[SIM_MODE_NORMAL].SST = {};

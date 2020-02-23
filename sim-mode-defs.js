@@ -122,7 +122,7 @@ ENV_DEFS.defaults.LLSteering = {
         // Cosine curve from 0 at poleward side of map to 1 at equatorward side
         let h = map(cos(map(y,0,HEIGHT,0,PI)),-1.5,1,1,0);
         // westerlies
-        let west = constrain(pow(1-h+map(u.noise(0),0,1,-0.3,0.3)+map(j,0,HEIGHT,-0.4,0.4),2)*4,0,4);
+        let west = constrain(pow(0.5-h+map(u.noise(0),0,1,-0.3,0.3)+map(j,0,HEIGHT,-0.4,0.4),2)*4,0,4);
         // ridging and trades
         let ridging = constrain(u.noise(1)+map(j,0,HEIGHT,0.3,-0.3),0,1);
         let trades = constrain(pow(h+map(ridging,0,1,-0.3,0.3),2)*3,0,3);
@@ -298,7 +298,7 @@ ENV_DEFS.defaults.SSTAnomaly = {
     mapFunc: (u,x,y,z)=>{
         let v = u.noise(0);
         v = v*2;
-        let i = v<1 ? -1.15 : 1.15;
+        let i = v<1 ? -0.5 : 1;
         v = 1-abs(1-v);
         if(v===0) v = 0.000001;
         v = log(v);
@@ -451,7 +451,7 @@ ENV_DEFS.defaults.moisture = {
     },
     modifiers: {
         polarMoisture: 0.43,
-        tropicalMoisture: 0.72,
+        tropicalMoisture: 0.62,
         mountainMoisture: 0.2
     },
     noiseChannels: [

@@ -122,11 +122,11 @@ ENV_DEFS.defaults.LLSteering = {
         // Cosine curve from 0 at poleward side of map to 1 at equatorward side
         let h = map(cos(map(y,0,HEIGHT,0,PI)),-1.5,1,1,0);
         // westerlies
-        let west = constrain(pow(0.5-h+map(u.noise(0),0,1,-0.3,0.3)+map(j,0,HEIGHT,-0.4,0.4),2)*4,0,4);
+        let west = constrain(pow(1.5-h+map(u.noise(0),0,1,-0.3,0.3)+map(j,0,HEIGHT,-0.4,0.4),2)*4,0,4);
         // ridging and trades
         let ridging = constrain(u.noise(1)+map(j,0,HEIGHT,0.3,-0.3),0,1);
         let trades = constrain(pow(h+map(ridging,0,1,-0.3,0.3),2)*3,0,3);
-        let tAngle = map(h,0.9,1,511*PI/512,15*PI/16); // trades angle
+        let tAngle = map(h,0.9,1,511*PI/512,14*PI/16); // trades angle
         // noise angle
         let a = map(u.noise(3),0,1,0,4*TAU);
         // noise magnitude
@@ -297,8 +297,8 @@ ENV_DEFS.defaults.SSTAnomaly = {
     version: 0,
     mapFunc: (u,x,y,z)=>{
         let v = u.noise(0);
-        v = v*2;
-        let i = v<1 ? -0.5 : 1;
+        v = v*2.125;
+        let i = v<1 ? -1 : 1;
         v = 1-abs(1-v);
         if(v===0) v = 0.000001;
         v = log(v);
@@ -385,8 +385,8 @@ ENV_DEFS.defaults.SST = {
     modifiers: {
         offSeasonPolarTemp: -3,
         peakSeasonPolarTemp: 10,
-        offSeasonTropicsTemp: 25.75,
-        peakSeasonTropicsTemp: 28
+        offSeasonTropicsTemp: 25,
+        peakSeasonTropicsTemp: 27
     }
 };
 ENV_DEFS[SIM_MODE_NORMAL].SST = {};

@@ -12,7 +12,7 @@ const SIM_MODE_EXPERIMENTAL = 4;
 const SPAWN_RULES = {};
 
 SPAWN_RULES[SIM_MODE_NORMAL] = function(b){
-    if(random()<0.0225) b.spawn(false,{x:random(0,WIDTH),y:random(0.4*HEIGHT,1.2*HEIGHT),sType:'l'});           // tropical waves
+    if(random()<0.030) b.spawn(false,{x:random(0,WIDTH),y:random(0.4*HEIGHT,0.9*HEIGHT),sType:'l'});           // tropical waves
     if(random()<0.01-0.002*seasonalSine(b.tick)) b.spawn(true);                 // extratropical cyclones
 };
 SPAWN_RULES[SIM_MODE_HYPER] = function(b){
@@ -79,7 +79,7 @@ ENV_DEFS.defaults.jetstream = {
         let s = u.yearfrac(z);
         let l = map(sqrt(map(s,-1,1,0,1)),0,1,highJet?0.47:0.55,highJet?0.25:0.35);
         let r = map(s,-1,1,highJet?0.45:0.5,highJet?0.25:0.35);
-        v = map(v,0,1,-r,r);
+        v = map(v,0,1.125,-r,r);
         return (l+v)*HEIGHT;
     },
     invisible: true,
@@ -126,7 +126,7 @@ ENV_DEFS.defaults.LLSteering = {
         // ridging and trades
         let ridging = constrain(u.noise(1)+map(j,0,HEIGHT,0.3,-0.3),0,1);
         let trades = constrain(pow(h+map(ridging,0,1,-0.3,0.3),2)*3,0,3);
-        let tAngle = map(h,0.9,1,511*PI/512,14*PI/16); // trades angle
+        let tAngle = map(h,0.9,1,511*PI/512,14.5*PI/16); // trades angle
         // noise angle
         let a = map(u.noise(3),0,1,0,4*TAU);
         // noise magnitude

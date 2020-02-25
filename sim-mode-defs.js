@@ -127,7 +127,7 @@ ENV_DEFS.defaults.LLSteering = {
         // ridging and trades
         let ridging = constrain(u.noise(1)+map(j,0,HEIGHT,0.3,-0.3),0,1);
         let trades = constrain(pow(h+map(ridging,0,1,-0.3,0.3),2)*3,0,3);
-        let tAngle = map(h,0.9,1,511*PI/512,15.5*PI/16); // trades angle
+        let tAngle = map(h,0.9,1,511*PI/512,16*PI/16); // trades angle
         // noise angle
         let a = map(u.noise(3),0,1,0,4*TAU);
         // noise magnitude
@@ -299,7 +299,7 @@ ENV_DEFS.defaults.SSTAnomaly = {
     mapFunc: (u,x,y,z)=>{
         let v = u.noise(0);
         v = v*2.1875;
-        let i = v<1 ? -0.50 : 0.50;
+        let i = v<1 ? -1 : 1;
         v = 1-abs(1-v);
         if(v===0) v = 0.000001;
         v = log(v);
@@ -354,7 +354,7 @@ ENV_DEFS.defaults.SST = {
         if(y<0) return 0;
         let anom = u.field('SSTAnomaly');
         let s = seasonalSine(z);
-        let w = map(cos(map(x,0,WIDTH,0,PI)),-0.75,0.75,0.75,0.75);
+        let w = map(cos(map(x,0,WIDTH,0,PI)),-0.8125,0.8125,0.8125,0.8125);
         let h0 = y/HEIGHT;
         let h1 = (sqrt(h0)+h0)/2;
         let h2 = sqrt(sqrt(h0));
@@ -386,7 +386,7 @@ ENV_DEFS.defaults.SST = {
     modifiers: {
         offSeasonPolarTemp: -3,
         peakSeasonPolarTemp: 0,
-        offSeasonTropicsTemp: 27,
+        offSeasonTropicsTemp: 26,
         peakSeasonTropicsTemp: 27
     }
 };

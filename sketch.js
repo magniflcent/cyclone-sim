@@ -180,7 +180,7 @@ function draw(){
         fill(255);
         textSize(24);
         textAlign(LEFT,TOP);
-        text("The program has committed a crime and will now cease to exist. :(",width/16,height/8);
+        text("An irregularity has been detected, please refer to the error log for more information.",width/16,height/8);
         textSize(15);
         text(err.stack,width/16,height/4);
         console.error(err);

@@ -386,7 +386,7 @@ ENV_DEFS.defaults.SST = {
     modifiers: {
         offSeasonPolarTemp: -3,
         peakSeasonPolarTemp: 0,
-        offSeasonTropicsTemp: 26,
+        offSeasonTropicsTemp: 26.5,
         peakSeasonTropicsTemp: 27
     }
 };

@@ -13,7 +13,7 @@ const SPAWN_RULES = {};
 
 SPAWN_RULES[SIM_MODE_NORMAL] = function(b){
     if(random()<0.015*sq((seasonalSine(b.tick)+1)/2)) b.spawn(false); //tropics spawn area
-    if(random()<0.001875) b.spawn(false,{x:random(0,WIDTH),y:random(0.5*HEIGHT,0.75*HEIGHT),sType:'l'}); // spawn area for areas like the GoM
+    if(random()<0.001875) b.spawn(false,{x:random(0,WIDTH),y:random(0.5*HEIGHT,0.74*HEIGHT),sType:'l'}); // spawn area for areas like the GoM
     if(random()<0.01-0.002*seasonalSine(b.tick)) b.spawn(true);                 // extratropical cyclones
 };
 SPAWN_RULES[SIM_MODE_HYPER] = function(b){
@@ -80,7 +80,7 @@ ENV_DEFS.defaults.jetstream = {
         let s = u.yearfrac(z);
         let l = map(sqrt(map(s,-1,1,0,1)),0,1,highJet?0.47:0.55,highJet?0.25:0.35);
         let r = map(s,-1,1,highJet?0.45:0.5,highJet?0.25:0.35);
-        v = map(v,0,1.125,-r,r);
+        v = map(v,0,1.25,-r,r);
         return (l+v)*HEIGHT;
     },
     invisible: true,

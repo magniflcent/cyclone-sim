@@ -13,7 +13,7 @@ const SPAWN_RULES = {};
 
 SPAWN_RULES[SIM_MODE_NORMAL] = function(b){
     if(random()<0.015*sq((seasonalSine(b.tick)+1)/2)) b.spawn(false); //tropics spawn area
-    if(random()<0.00375) b.spawn(false,{x:random(0,WIDTH),y:random(0.5*HEIGHT,0.7*HEIGHT),sType:'l'}); // spawn area for areas like the GoM
+    if(random()<0.015) b.spawn(false,{x:random(0,WIDTH),y:random(0.5*HEIGHT,0.7*HEIGHT),sType:'l'}); // spawn area for areas like the GoM
     if(random()<0.01-0.002*seasonalSine(b.tick)) b.spawn(true);                 // extratropical cyclones
 };
 SPAWN_RULES[SIM_MODE_HYPER] = function(b){
@@ -299,7 +299,7 @@ ENV_DEFS.defaults.SSTAnomaly = {
     mapFunc: (u,x,y,z)=>{
         let v = u.noise(0);
         v = v*2;
-        let i = v<1 ? -0.5 : 0.5;
+        let i = v<1 ? -0.75 : 0.75;
         v = 1-abs(1-v);
         if(v===0) v = 0.000001;
         v = log(v);

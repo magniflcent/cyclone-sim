@@ -13,7 +13,7 @@ const SPAWN_RULES = {};
 
 SPAWN_RULES[SIM_MODE_NORMAL] = function(b){
     if(random()<0.015*sq((seasonalSine(b.tick)+1)/2)) b.spawn(false); //tropics spawn area
-    if(random()<0.001875) b.spawn(false,{x:random(0,WIDTH),y:random(0.5*HEIGHT,0.74*HEIGHT),sType:'l'}); // spawn area for areas like the GoM
+    if(random()<0.0009375) b.spawn(false,{x:random(0,WIDTH),y:random(0.5*HEIGHT,0.74*HEIGHT),sType:'l'}); // spawn area for areas like the GoM
     if(random()<0.01-0.002*seasonalSine(b.tick)) b.spawn(true);                 // extratropical cyclones
 };
 SPAWN_RULES[SIM_MODE_HYPER] = function(b){
@@ -121,7 +121,7 @@ ENV_DEFS.defaults.LLSteering = {
         // Jetstream
         let j = u.field('jetstream');
         // Cosine curve from 0 at poleward side of map to 1 at equatorward side
-        let h = map(cos(map(y,0,HEIGHT,0,PI)),-1.46875,1,1,0);
+        let h = map(cos(map(y,0,HEIGHT,0,PI)),-1.25,1,1,0);
         // westerlies
         let west = constrain(pow(1-h+map(u.noise(0),0,1,-0.3,0.3)+map(j,0,HEIGHT,-0.3,0.3),2)*4,0,4);
         // ridging and trades
@@ -387,7 +387,7 @@ ENV_DEFS.defaults.SST = {
         offSeasonPolarTemp: -3,
         peakSeasonPolarTemp: 0,
         offSeasonTropicsTemp: 27,
-        peakSeasonTropicsTemp: 28.5
+        peakSeasonTropicsTemp: 29
     }
 };
 ENV_DEFS[SIM_MODE_NORMAL].SST = {};

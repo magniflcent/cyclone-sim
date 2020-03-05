@@ -13,7 +13,7 @@ const SPAWN_RULES = {};
 
 SPAWN_RULES[SIM_MODE_NORMAL] = function(b){
     if(random()<0.015*sq((seasonalSine(b.tick)+1)/2)) b.spawn(false); //tropics spawn area
-    if(random()<0.0009375) b.spawn(false,{x:random(0,WIDTH),y:random(0.5*HEIGHT,0.74*HEIGHT),sType:'l'}); // spawn area for areas like the GoM
+    if(random()<0.0009375) b.spawn(false,{x:random(0,WIDTH),y:random(0.5*HEIGHT,0.65*HEIGHT),sType:'l'}); // spawn area for areas like the GoM
     if(random()<0.01-0.002*seasonalSine(b.tick)) b.spawn(true);                 // extratropical cyclones
 };
 SPAWN_RULES[SIM_MODE_HYPER] = function(b){
@@ -127,7 +127,7 @@ ENV_DEFS.defaults.LLSteering = {
         // ridging and trades
         let ridging = constrain(u.noise(1)+map(j,0,HEIGHT,0.3,-0.3),0,1);
         let trades = constrain(1+pow(h+map(ridging,0,1,-0.3,0.3),2)*3,0,3);
-        let tAngle = map(h,0.9,1,511*PI/512,14*PI/16); // trades angle
+        let tAngle = map(h,0.9,1,511*PI/512,15*PI/16); // trades angle
         // noise angle
         let a = map(u.noise(3),0,1,0,4*TAU);
         // noise magnitude
@@ -299,7 +299,7 @@ ENV_DEFS.defaults.SSTAnomaly = {
     mapFunc: (u,x,y,z)=>{
         let v = u.noise(0);
         v = v*2;
-        let i = v<1 ? -1 : 1;
+        let i = v<1 ? -0.5 : 0.5;
         v = 1-abs(1-v);
         if(v===0) v = 0.000001;
         v = log(v);
@@ -386,8 +386,8 @@ ENV_DEFS.defaults.SST = {
     modifiers: {
         offSeasonPolarTemp: -3,
         peakSeasonPolarTemp: 0,
-        offSeasonTropicsTemp: 27,
-        peakSeasonTropicsTemp: 29
+        offSeasonTropicsTemp: 26,
+        peakSeasonTropicsTemp: 30
     }
 };
 ENV_DEFS[SIM_MODE_NORMAL].SST = {};

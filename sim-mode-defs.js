@@ -12,8 +12,8 @@ const SIM_MODE_EXPERIMENTAL = 4;
 const SPAWN_RULES = {};
 
 SPAWN_RULES[SIM_MODE_NORMAL] = function(b){
-    if(random()<0.075*sq((seasonalSine(b.tick)+1)/2)) b.spawn(false); //tropics spawn area
-    if(random()<0.075) b.spawn(false,{x:random(0,WIDTH),y:random(0.5*HEIGHT,0.65*HEIGHT),sType:'l'}); // spawn area for areas like the GoM
+    if(random()<0.0075*sq((seasonalSine(b.tick)+1)/2)) b.spawn(false); //tropics spawn area
+    if(random()<0.0075) b.spawn(false,{x:random(0,WIDTH),y:random(0.5*HEIGHT,0.65*HEIGHT),sType:'l'}); // spawn area for areas like the GoM
     if(random()<0.01-0.002*seasonalSine(b.tick)) b.spawn(true);                 // extratropical cyclones
 };
 SPAWN_RULES[SIM_MODE_HYPER] = function(b){

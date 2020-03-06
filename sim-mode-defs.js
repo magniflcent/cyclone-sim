@@ -12,8 +12,8 @@ const SIM_MODE_EXPERIMENTAL = 4;
 const SPAWN_RULES = {};
 
 SPAWN_RULES[SIM_MODE_NORMAL] = function(b){
-    if(random()<0.0075*sq((seasonalSine(b.tick)+1)/2)) b.spawn(false); //tropics spawn area
-    if(random()<0.0075) b.spawn(false,{x:random(0,WIDTH),y:random(0.6*HEIGHT,0.7*HEIGHT),sType:'l'}); // spawn area for areas like the GoM
+    if(random()<0.009*sq((seasonalSine(b.tick)+1)/2)) b.spawn(false); //tropics spawn area
+    if(random()<0.009) b.spawn(false,{x:random(0,WIDTH),y:random(0.6*HEIGHT,0.6*HEIGHT),sType:'l'}); // spawn area for areas like the GoM
     if(random()<0.01-0.002*seasonalSine(b.tick)) b.spawn(true);                 // extratropical cyclones
 };
 SPAWN_RULES[SIM_MODE_HYPER] = function(b){
@@ -126,7 +126,7 @@ ENV_DEFS.defaults.LLSteering = {
         let west = constrain(pow(1-h+map(u.noise(0),0,1,-0.3,0.3)+map(j,0,HEIGHT,-0.3,0.3),2)*4,0,4);
         // ridging and trades
         let ridging = constrain(u.noise(1)+map(j,0,HEIGHT,0.3,-0.3),0,1);
-        let trades = constrain(1+pow(h+map(ridging,0,1,-0.3,0.3),2)*3,0,3);
+        let trades = constrain(0.5+pow(h+map(ridging,0,1,-0.3,0.3),2)*3,0,3);
         let tAngle = map(h,0.9,1,511*PI/512,15*PI/16); // trades angle
         // noise angle
         let a = map(u.noise(3),0,1,0,4*TAU);

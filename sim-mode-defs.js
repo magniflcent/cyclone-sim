@@ -305,7 +305,7 @@ ENV_DEFS.defaults.SSTAnomaly = {
         v = log(v);
         let r;
         if(u.modifiers.r!==undefined) r = u.modifiers.r;
-        else r = 3.75;
+        else r = 5;
         v = -r*v;
         v = v*i;
         if(u.modifiers.bigBlobBase!==undefined && v>u.modifiers.bigBlobExponentThreshold) v += pow(u.modifiers.bigBlobBase,v-u.modifiers.bigBlobExponentThreshold)-1;
@@ -387,7 +387,7 @@ ENV_DEFS.defaults.SST = {
         offSeasonPolarTemp: -3,
         peakSeasonPolarTemp: 0,
         offSeasonTropicsTemp: 25,
-        peakSeasonTropicsTemp: 28.5
+        peakSeasonTropicsTemp: 28
     }
 };
 ENV_DEFS[SIM_MODE_NORMAL].SST = {};

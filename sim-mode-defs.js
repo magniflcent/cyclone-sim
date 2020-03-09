@@ -126,7 +126,7 @@ ENV_DEFS.defaults.LLSteering = {
         let west = constrain(pow(1-h+map(u.noise(0),0,1,-0.3,0.3)+map(j,0,HEIGHT,-0.3,0.3),2)*4,0,4);
         // ridging and trades
         let ridging = constrain(u.noise(1)+map(j,0,HEIGHT,0.3,-0.3),0,1);
-        let trades = constrain(pow(h+map(ridging,0,1,-0.3,0.3),2)*3,0,3);
+        let trades = constrain(pow(1+h+map(ridging,0,1,-0.3,0.3),2)*3,0,3);
         let tAngle = map(h,0.9,1,511*PI/512,15.75*PI/16); // trades angle
         // noise angle
         let a = map(u.noise(3),0,1,0,4*TAU);

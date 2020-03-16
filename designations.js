@@ -472,6 +472,53 @@ DesignationSystem.westernPacific = new DesignationSystem({
     ]
 });
 
+DesignationSystem.westernPacific1979 = new DesignationSystem({
+    displayName: 'Western Pacific (1979-1989)',
+    suffix: 'W',
+    mainLists: [
+        ["Andy","Bess","Cecil","Dot","Ellis","Faye","Gordon","Hope","Irving","Judy","Ken","Lola","Mac","Nancy","Owen","Pamela","Roger","Sarah","Tip","Vera","Wayne"],
+        ["Abby","Ben","Carmen","Dom","Ellen","Forrest","Georgia","Herbert","Ida","Joe","Kim","Lex","Marge","Norris","Orchid","Percy","Ruth","Sperry","Thelma","Vernon","Wynne"],
+        ["Alex","Betty","Cary","Dinah","Ed","Freda","Gerald","Holly","Ike","June","Kelly","Lynn","Maury","Nina","Ogden","Phyllis","Roy","Susan","Thad","Vanessa","Warren"],
+        ["Agnes","Bill","Clara","Doyle","Elsie","Fabian","Gay","Hazen","Irma","Jeff","Kit","Lee","Mamie","Nelson","Odessa","Pat","Ruby","Skip","Tess","Val","Winona"]
+     ]
+});
+
+DesignationSystem.westernPacific1989 = new DesignationSystem({
+    displayName: 'Western Pacific (1989-1995)',
+    suffix: 'W',
+    mainLists: [
+        ["Angela","Brian","Colleen","Dan","Elsie","Forrest","Gay","Hunt","Irma","Jack","Koryn","Lewis","Marian","Nathan","Ofelia","Percy","Robyn","Steve","Tasha","Vernon","Winona","Yancy","Zola"],
+        ["Abe","Becky","Cecil","Dot","Ed","Flo","Gene","Hattie","Ira","Jeana","Kyle","Lola","Mike","Nell","Owen","Page","Russ","Sharon","Tim","Vanessa","Walt","Yunya","Zeke"],
+        ["Amy","Brendan","Caitlin","Doug","Ellie","Fred","Gladys","Harry","Ivy","Joel","Kinna","Luke","Mireille","Nat","Orchid","Pat","Ruth","Seth","Thelma","Verne","Wilda","Yuri","Zelda"],
+        ["Axel","Bobbie","Chuck","Deanna","Eli","Faye","Gary","Helen","Irving","Janis","Kent","Lois","Mark","Nina","Oscar","Polly","Ryan","Sibyl","Ted","Val","Ward","Yvette","Zack"]
+     ]
+});
+
+DesignationSystem.westernPacific1996 = new DesignationSystem({
+    displayName: 'Western Pacific (1996-1999)',
+    suffix: 'W',
+    mainLists: [
+        ["Ann","Bart","Cam","Dan","Eve","Frankie","Gloria","Herb","Ian","Joy","Kirk","Lisa","Marty","Niki","Orson","Piper","Rick","Sally","Tom","Violet","Willie","Yates","Zane"],
+        ["Abel","Beth","Carlo","Dale","Ernie","Fern","Greg","Hannah","Isa","Jimmy","Kelly","Levi","Marie","Nestor","Opal","Peter","Rosie","Scott","Tina","Victor","Winnie","Yule","Zita"],
+        ["Amber","Bing","Cass","David","Ella","Fritz","Ginger","Hank","Ivan","Joan","Keith","Linda","Mort","Nichole","Otto","Penny","Rex","Stella","Todd","Vicki","Waldo","Yanni","Zeb"],
+        ["Alex","Babs","Chip","Dawn","Elvis","Faith","Gil","Hilda","Iris","Jacob","Kate","Leo","Maggie","Neil","Olga","Paul","Rachel","Sam","Tanya","Virgil","Wendy","York","Zia"]
+     ]
+});
+
+DesignationSystem.westernPacific2000 = new DesignationSystem({
+    displayName: 'Western Pacific (2000-2005)',
+    suffix: 'W',
+    mainLists: [
+        ["Damrey","Longwang","Kirogi","Kai-tak","Tembin","Bolaven","Chanchu","Jelawat","Ewiniar","Bilis","Gaemi","Prapiroon","Maria","Saomai","Bopha","Wukong","Sonamu","Shanshan","Yagi","Xangsane","Bebinca","Rumbia","Soulik","Cimaron","Jebi","Durian","Utor","Trami"],
+        ["Kong-rey","Yutu","Toraji","Man-yi","Usagi","Pabuk","Wutip","Sepat","Fitow","Danas","Nari","Wipha","Francisco","Lekima","Krosa","Haiyan","Podul","Lingling","Kajiki","Faxai","Vamei","Tapah","Mitag","Hagibis","Neoguri","Rammasun","Chataan","Halong"],
+        ["Nakri","Fengshen","Kalmaegi","Fung-wong","Kammuri","Phanfone","Vongfong","Rusa","Sinlaku","Hagupit","Jangmi","Mekkhala","Higos","Bavi","Maysak","Haishen","Pongsona","Yanyan","Kujira","Chan-hom","Linfa","Nangka","Soudelor","Imbudo","Goni","Morakot","Etau","Vamco"],
+        ["Krovanh","Dujuan","Maemi","Choi-wan","Koppu","Ketsana","Parma","Melor","Nepartak","Lupit","Mirinae","Sudal","Omais","Conson","Chanthu","Dianmu","Mindulle","Tingting","Kompasu","Namtheun","Malou","Meranti","Rananim","Malakas","Megi","Chaba","Aere","Songda"],
+        ["Sarika","Haima","Meari","Ma-on","Tokage","Nock-ten","Muifa","Merbok","Nanmadol","Talas","Noru","Kulap","Roke","Sonca","Nesat","Haitang","Nalgae","Banyan","Washi","Matsa","Sanvu","Mawar","Guchol","Talim","Nabi","Khanun","Vicente","Saola"]
+    ]
+});
+        
+    
+
 DesignationSystem.PAGASA = new DesignationSystem({
     displayName: 'PAGASA',
     secondary: true,

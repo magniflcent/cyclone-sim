@@ -297,7 +297,7 @@ ENV_DEFS.defaults.SSTAnomaly = {
     version: 0,
     mapFunc: (u,x,y,z)=>{
         let v = u.noise(0);
-        v = v*2;
+        v = v*1.875;
         let i = v<1 ? -0.50 : 1;
         v = 1-abs(1-v);
         if(v===0) v = 0.000001;

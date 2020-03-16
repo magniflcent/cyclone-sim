@@ -370,6 +370,7 @@ ENV_DEFS[SIM_MODE_WPAC].SSTAnomaly = {
         v = v*i;
         if(u.modifiers.bigBlobBase!==undefined && v>u.modifiers.bigBlobExponentThreshold) v += pow(u.modifiers.bigBlobBase,v-u.modifiers.bigBlobExponentThreshold)-1;
         return v;
+},
 };
 
 // -- SST -- //

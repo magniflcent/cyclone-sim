@@ -31,7 +31,7 @@ SPAWN_RULES[SIM_MODE_MEGABLOBS] = function(b){
 SPAWN_RULES[SIM_MODE_EXPERIMENTAL] = SPAWN_RULES[SIM_MODE_HYPER];
 
 SPAWN_RULES[SIM_MODE_WPAC] = function(b){
-    if(random()<0.015) b.spawn(false,{x:random(0.2*WIDTH,0.7*WIDTH),y:random(0.4*HEIGHT,0.9*HEIGHT),sType:'l'}); //tropics spawn area
+    if(random()<0.01125) b.spawn(false,{x:random(0.2*WIDTH,0.7*WIDTH),y:random(0.4*HEIGHT,0.9*HEIGHT),sType:'l'}); //tropics spawn area
     if(random()<0.01-0.002*seasonalSine(b.tick)) b.spawn(true);                 // extratropical cyclones
 };
 
@@ -456,7 +456,7 @@ ENV_DEFS[SIM_MODE_WPAC].SST = {
         offSeasonPolarTemp: -3,
         peakSeasonPolarTemp: 0,
         offSeasonTropicsTemp: 27,
-        peakSeasonTropicsTemp: 29,
+        peakSeasonTropicsTemp: 30,
     }
 };   
 

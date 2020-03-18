@@ -359,7 +359,7 @@ ENV_DEFS[SIM_MODE_WPAC].SSTAnomaly = {
     mapFunc: (u,x,y,z)=>{
         let v = u.noise(0);
         v = v*2;
-        let i = v<1 ? -0.50 : 0.875;
+        let i = v<1 ? -0.50 : 0.75;
         v = 1-abs(1-v);
         if(v===0) v = 0.000001;
         v = log(v);

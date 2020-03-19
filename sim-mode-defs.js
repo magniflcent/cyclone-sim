@@ -280,7 +280,7 @@ ENV_DEFS[SIM_MODE_MEGABLOBS].ULSteering = {};
 ENV_DEFS[SIM_MODE_EXPERIMENTAL].ULSteering = {};
 ENV_DEFS[SIM_MODE_WPAC].ULSteering = {
     modifiers: {
-        hadleyUpperBound: 2
+        hadleyUpperBound: 3
     }
 };
 
@@ -523,4 +523,10 @@ ENV_DEFS[SIM_MODE_WILD].moisture = {
 };
 ENV_DEFS[SIM_MODE_MEGABLOBS].moisture = {};
 ENV_DEFS[SIM_MODE_EXPERIMENTAL].moisture = {};
-ENV_DEFS[SIM_MODE_WPAC].moisture = {};
+ENV_DEFS[SIM_MODE_WPAC].moisture = {
+    modifiers: {
+        polarMoisture: 0.52,
+        tropicalMoisture: 0.82,
+        mountainMoisture: 0
+    }
+};

@@ -138,7 +138,7 @@ ENV_DEFS.defaults.LLSteering = {
         // noise angle
         let a = map(u.noise(3),0,1,0,4*TAU);
         // noise magnitude
-        let m = pow(2,map(u.noise(2),0,1,-8,4));
+        let m = pow(3,map(u.noise(2),0,1,-8,4));
 
         // apply to vector
         u.vec.rotate(a);
@@ -464,7 +464,7 @@ ENV_DEFS[SIM_MODE_WPAC].SST = {
         let h0 = y/HEIGHT;
         let h1 = (sqrt(h0)+h0)/2;
         let h2 = sqrt(sqrt(h0));
-        let h = map(cos(lerp(PI,0,lerp(h1,h2,sq(w)))),-0.75,1,0,1);
+        let h = map(cos(lerp(PI,0,lerp(h1,h2,sq(w)))),-1,1,0,1);
         let ospt = u.modifiers.offSeasonPolarTemp;
         let pspt = u.modifiers.peakSeasonPolarTemp;
         let ostt = u.modifiers.offSeasonTropicsTemp;

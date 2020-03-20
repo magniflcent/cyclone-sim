@@ -534,6 +534,36 @@ DesignationSystem.PAGASA = new DesignationSystem({
     ]
 });
 
+DesignationSystem.PAGASA1963 = new DesignationSystem({
+    displayName: 'PAGASA (1963-2000)',
+    secondary: true,
+    numEnable: false,
+    annual: true,
+    anchor: 1963,
+    nameThresh: 0,
+    mainLists: [
+        ["Auring","Bebeng","Karing","Diding","Etang","Gening","Herming","Ising","Luding","Mameng","Neneng","Oniang","Pepang","Rosing","Sisang","Trining","Uring","Welming","Yayang","Ading","Barang","Krising","Dadang","Erling","Goying"],
+        ["Asiang","Biring","Konsing","Dading","Edeng","Gloring","Huaning","Isang","Lusing","Maring","Nitang","Osang","Paring","Reming","Seniang","Toyang","Undang","Welpring","Yoning","Aring","Basiang","Kayang","Dorang","Enang","Grasing"],
+        ["Atring","Bining","Kuring","Daling","Elang","Goring","Huling","Ibiang","Luming","Miling","Narsing","Openg","Pining","Rubing","Saling","Tasing","Unding","Walding","Yeyeng","Anding","Binang","Kadiang","Dinang","Epang","Gundang"],
+        ["Atang","Bising","Klaring","Deling","Emang","Gading","Heling","Iliang","Loleng","Miding","Norming","Oyang","Pitang","Ruping","Sening","Titang","Uding","Wening","Yoling","Aning","Bidang","Kading","Delang","Esang","Garding"]
+     ]
+});
+
+DesignationSystem.PAGASA2001 = new DesignationSystem({
+    displayName: 'PAGASA (2001-2004)',
+    secondary: true,
+    numEnable: false,
+    annual: true,
+    anchor: 1963,
+    nameThresh: 0,
+    mainLists: [
+        ["Amang","Batibot","Chedeng","Dodong","Egay","Falcon","Gilas","Harurot","Ineng","Juaning","Kabayan","Lakay","Mina","Ni\u00f1a","Onyok","Pogi","Quiel","Roskas","Sikat","Tisoy","Ursula","Viring","Weng","Yoyoy","Zigzag","Abe","Berto","Charing","Danggit","Estoy","Fuago","Gening","Hantik","Irog","Jaime"],
+        ["Ambo","Butchoy","Cosme","Dindo","Enteng","Frank","Gener","Helen","Igme","Julian","Karen","Lawin","Marce","Nina","Ofel","Pablo","Quinta","Rolly","Siony","Tonyo","Unding","Violeta","Winnie","Yoyong","Zosimo","Alakdan","Baldo","Clara","Dencio","Estong","Felipe","Gardo","Heling","Ismael","Julio"],
+        ["Auring","Barok","Crising","Darna","Emong","Feria","Gorio","Huaning","Isang","Jolina","Kiko","Labuyo","Maring","Nanang","Ondoy","Pabling","Quedan","Roleta","Sibak","Talahib","Ubbeng","Vinta","Wilma","Yaning","Zuma","Alamid","Bruno","Conching","Dolor","Ernie","Florante","Gerardo","Hernan","Isko","Jerome"],
+        ["Agaton","Basyang","Caloy","Dagul","Espada","Florita","Gardo","Hambalos","Inday","Juan","Kaka","Lagalag","Milenyo","Neneng","Ompong","Paloma","Quadro","Rapido","Sibasib","Tagbanwa","Usman","Venus","Wisik","Yayang","Zeny","Agila","Bagwis","Ciriaco","Diego","Elena","Forte","Gunding","Hunyango","Itoy","Jessa"]
+     ]
+});
+
 DesignationSystem.australianRegionBoM = new DesignationSystem({
     displayName: 'Australian Region (BoM)',
     suffix: 'U',

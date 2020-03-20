@@ -31,7 +31,7 @@ SPAWN_RULES[SIM_MODE_MEGABLOBS] = function(b){
 SPAWN_RULES[SIM_MODE_EXPERIMENTAL] = SPAWN_RULES[SIM_MODE_HYPER];
 
 SPAWN_RULES[SIM_MODE_WPAC] = function(b){
-    if(random()<0.005) b.spawn(false,{x:random(0.2*WIDTH,0.7*WIDTH),y:random(0.8*HEIGHT,0.9*HEIGHT),sType:'l'}); //tropics spawn area
+    if(random()<0.005) b.spawn(false,{x:random(0.1*WIDTH,0.7*WIDTH),y:random(0.6*HEIGHT,0.8*HEIGHT),sType:'l'}); //tropics spawn area
     if(random()<0.01-0.002*seasonalSine(b.tick)) b.spawn(true);                 // extratropical cyclones
 };
 
@@ -456,6 +456,22 @@ ENV_DEFS[SIM_MODE_EXPERIMENTAL].SST = {
     }
 };
 ENV_DEFS[SIM_MODE_WPAC].SST = {
+    mapFunc: (u,x,y,z)=>{
+        if(y<0) return 0;
+        let anom = u.field('SSTAnomaly');
+        let s = seasonalSine(z);
+        let w = map(cos(map(x,0,WIDTH,0,PI)),-0.9,0.9,0.9,0.9);
+        let h0 = y/HEIGHT;
+        let h1 = (sqrt(h0)+h0)/2;
+        let h2 = sqrt(sqrt(h0));
+        let h = map(cos(lerp(PI,0,lerp(h1,h2,sq(w)))),-1.25,0,0,1.25);
+        let ospt = u.modifiers.offSeasonPolarTemp;
+        let pspt = u.modifiers.peakSeasonPolarTemp;
+        let ostt = u.modifiers.offSeasonTropicsTemp;
+        let pstt = u.modifiers.peakSeasonTropicsTemp;
+        let t = lerp(map(s,-1,1,ospt,pspt),map(s,-1,1,ostt,pstt),h);
+        return t+anom;
+    },
     modifiers: {
         offSeasonPolarTemp: -3,
         peakSeasonPolarTemp: 0,

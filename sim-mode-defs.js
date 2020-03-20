@@ -459,7 +459,7 @@ ENV_DEFS[SIM_MODE_WPAC].SST = {
     modifiers: {
         offSeasonPolarTemp: -3,
         peakSeasonPolarTemp: 0,
-        offSeasonTropicsTemp: 27,
+        offSeasonTropicsTemp: 26,
         peakSeasonTropicsTemp: 30,
     }
 };   

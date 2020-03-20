@@ -688,6 +688,8 @@ DesignationSystem.presetDesignationSystems = [
     DesignationSystem.westernPacific1996,
     DesignationSystem.westernPacific2000,
     DesignationSystem.PAGASA,
+    DesignationSystem.PAGASA1963,
+    DesignationSystem.PAGASA2001,
     DesignationSystem.northIndianOcean,
     DesignationSystem.australianRegionBoM,
     DesignationSystem.southPacific,

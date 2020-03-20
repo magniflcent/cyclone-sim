@@ -524,7 +524,7 @@ DesignationSystem.PAGASA = new DesignationSystem({
     secondary: true,
     numEnable: false,
     annual: true,
-    anchor: 2001,
+    anchor: 1963,
     nameThresh: 0,
     mainLists: [
         ["Amang","Betty","Chedeng","Dodong","Egay","Falcon","Goring","Hanna","Ineng","Jenny","Kabayan","Liwayway","Marilyn","Nimfa","Onyok","Perla","Quiel","Ramon","Sarah","Tamaraw","Ugong","Viring","Weng","Yoyoy","Zigzag","Abe","Berto","Charo","Dado","Estoy","Felion","Gening","Herman","Irma","Jaime"],
@@ -554,7 +554,7 @@ DesignationSystem.PAGASA2001 = new DesignationSystem({
     secondary: true,
     numEnable: false,
     annual: true,
-    anchor: 2001,
+    anchor: 1963,
     nameThresh: 0,
     mainLists: [
         ["Amang","Batibot","Chedeng","Dodong","Egay","Falcon","Gilas","Harurot","Ineng","Juaning","Kabayan","Lakay","Mina","Ni\u00f1a","Onyok","Pogi","Quiel","Roskas","Sikat","Tisoy","Ursula","Viring","Weng","Yoyoy","Zigzag","Abe","Berto","Charing","Danggit","Estoy","Fuago","Gening","Hantik","Irog","Jaime"],

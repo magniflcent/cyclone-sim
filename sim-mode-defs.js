@@ -251,7 +251,7 @@ ENV_DEFS.defaults.ULSteering = {
 ENV_DEFS[SIM_MODE_NORMAL].ULSteering = {};
 ENV_DEFS[SIM_MODE_HYPER].ULSteering = {
     modifiers: {
-        hadleyUpperBound: 3.5
+        hadleyUpperBound: 3
     }
 };
 ENV_DEFS[SIM_MODE_WILD].ULSteering = {

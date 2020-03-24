@@ -363,7 +363,7 @@ ENV_DEFS[SIM_MODE_WPAC].SSTAnomaly = {
     mapFunc: (u,x,y,z)=>{
         let v = u.noise(0);
         v = v*1.875;
-        let i = v<1 ? -1 : 1;
+        let i = v<1 ? -0.5 : 1;
         v = 1-abs(1-v);
         if(v===0) v = 0.000001;
         v = log(v);
@@ -460,7 +460,7 @@ ENV_DEFS[SIM_MODE_WPAC].SST = {
         if(y<0) return 0;
         let anom = u.field('SSTAnomaly');
         let s = seasonalSine(z);
-        let w = map(cos(map(x,0,WIDTH,0,PI)),-0.9,0.9,0.9,0.9);
+        let w = map(cos(map(x,0,WIDTH,0,PI)),-0.5,0.75,0.75,0.75);
         let h0 = y/HEIGHT;
         let h1 = (sqrt(h0)+h0)/2;
         let h2 = sqrt(sqrt(h0));

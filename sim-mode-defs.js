@@ -31,24 +31,8 @@ SPAWN_RULES[SIM_MODE_MEGABLOBS] = function(b){
 SPAWN_RULES[SIM_MODE_EXPERIMENTAL] = SPAWN_RULES[SIM_MODE_HYPER];
 
 SPAWN_RULES[SIM_MODE_WPAC] = function(b){
-	// tropic spawn area
-	if(random()<0.0035) b.spawn(false,{x:random(0.28*WIDTH,0.73*WIDTH),y:random(0.51*HEIGHT,0.76*HEIGHT),sType:'l'});		// main basin (t.o.cancer)
-	if(random()<0.0025) b.spawn(false,{x:random(0.3*WIDTH,0.73*WIDTH),y:random(0.761*HEIGHT,0.9*HEIGHT),sType:'l'});		// main basin (equator)
-	if(random()<0.00025) b.spawn(false,{x:random(0.667*WIDTH,0.807*WIDTH),y:random(0.445*HEIGHT,0.509*HEIGHT),sType:'l'});	// southern japan
-    if(random()<0.0006) b.spawn(false,{x:random(0.731*WIDTH,0.807*WIDTH),y:random(0.511*HEIGHT,0.787*HEIGHT),sType:'l'});   // basin edge, western IDL (t.o.cancer)
-	if(random()<0.0004) b.spawn(false,{x:random(0.731*WIDTH,0.807*WIDTH),y:random(0.788*HEIGHT,0.9*HEIGHT),sType:'l'});		// basin edge, western IDL (equator)
-    if(random()<0.00015) b.spawn(false,{x:random(0.808*WIDTH,0.98*WIDTH),y:random(0.55*HEIGHT,0.83*HEIGHT),sType:'l'});		// CPAC, eastern IDL (crossover etc)
-	if(random()<0.0007) b.spawn(false,{x:random(0.145*WIDTH,0.244*WIDTH),y:random(0.648*HEIGHT,0.84*HEIGHT),sType:'l'});	// northern SCS
-	if(random()<0.0003) b.spawn(false,{x:random(0.145*WIDTH,0.244*WIDTH),y:random(0.841*HEIGHT,0.9*HEIGHT),sType:'l'});		// southern SCS
-	if(random()<0.00015) b.spawn(false,{x:random(0.115*WIDTH,0.14*WIDTH),y:random(0.667*HEIGHT,0.695*HEIGHT),sType:'l'});	// gulf of tonkin
-	if(random()<0.0001) b.spawn(false,{x:random(0.094*WIDTH,0.14*WIDTH),y:random(0.842*HEIGHT,0.91*HEIGHT),sType:'l'});		// southern vietnam
-	if(random()<0.00025) b.spawn(false,{x:random(0.182*WIDTH,0.209*WIDTH),y:random(0.62*HEIGHT,0.649*HEIGHT),sType:'l'});	// southern china
-	if(random()<0.00025) b.spawn(false,{x:random(0.21*WIDTH,0.239*WIDTH),y:random(0.602*HEIGHT,0.649*HEIGHT),sType:'l'});	// southeastern china
-	if(random()<0.00015) b.spawn(false,{x:random(0.24*WIDTH,0.269*WIDTH),y:random(0.56*HEIGHT,0.635*HEIGHT),sType:'l'});	// taiwan coast
-	if(random()<0.00025) b.spawn(false,{x:random(0.245*WIDTH,0.269*WIDTH),y:random(0.636*HEIGHT,0.685*HEIGHT),sType:'l'});	// northern philippines
-	if(random()<0.0002) b.spawn(false,{x:random(0.266*WIDTH,0.301*WIDTH),y:random(0.761*HEIGHT,0.852*HEIGHT),sType:'l'});	// central philippines (eastern) 
-	if(random()<0.00015) b.spawn(false,{x:random(0.245*WIDTH,0.265*WIDTH),y:random(0.761*HEIGHT,0.9*HEIGHT),sType:'l'});	// central philippines (western)
-	if(random()<0.01-0.002*seasonalSine(b.tick)) b.spawn(true);                 // extratropical cyclones
+    if(random()<0.005) b.spawn(false,{x:random(0.1*WIDTH,0.7*WIDTH),y:random(0.7*HEIGHT,0.9*HEIGHT),sType:'l'}); //tropics spawn area
+    if(random()<0.01-0.002*seasonalSine(b.tick)) b.spawn(true);                 // extratropical cyclones
 };
 
 // ---- Definitions of Environmental Fields ---- //
@@ -144,7 +128,7 @@ ENV_DEFS.defaults.LLSteering = {
         // Jetstream
         let j = u.field('jetstream');
         // Cosine curve from 0 at poleward side of map to 1 at equatorward side
-        let h = map(cos(map(y,0,HEIGHT,0,PI)),-1.25,0.5,0.5,0);
+        let h = map(cos(map(y,0,HEIGHT,0,PI)),-1.25,0.625,0.625,0);
         // westerlies
         let west = constrain(pow(1-h+map(u.noise(0),0,1,-0.3,0.3)+map(j,0,HEIGHT,-0.3,0.3),2)*4,0,4);
         // ridging and trades
@@ -379,7 +363,7 @@ ENV_DEFS[SIM_MODE_WPAC].SSTAnomaly = {
     mapFunc: (u,x,y,z)=>{
         let v = u.noise(0);
         v = v*1.875;
-        let i = v<1 ? -0.50 : 0.50;
+        let i = v<1 ? -0.5 : 1;
         v = 1-abs(1-v);
         if(v===0) v = 0.000001;
         v = log(v);
@@ -476,7 +460,7 @@ ENV_DEFS[SIM_MODE_WPAC].SST = {
         if(y<0) return 0;
         let anom = u.field('SSTAnomaly');
         let s = seasonalSine(z);
-        let w = map(cos(map(x,0,WIDTH,0,PI)),-0.9,0.9,0.9,0.9);
+        let w = map(cos(map(x,0,WIDTH,0,PI)),-0.5,0.75,0.75,0.75);
         let h0 = y/HEIGHT;
         let h1 = (sqrt(h0)+h0)/2;
         let h2 = sqrt(sqrt(h0));
@@ -491,8 +475,8 @@ ENV_DEFS[SIM_MODE_WPAC].SST = {
     modifiers: {
         offSeasonPolarTemp: -3,
         peakSeasonPolarTemp: 0,
-        offSeasonTropicsTemp: 26,
-        peakSeasonTropicsTemp: 30,
+        offSeasonTropicsTemp: 27,
+        peakSeasonTropicsTemp: 28,
     }
 };   
 

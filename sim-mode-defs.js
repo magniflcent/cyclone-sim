@@ -31,7 +31,7 @@ SPAWN_RULES[SIM_MODE_MEGABLOBS] = function(b){
 SPAWN_RULES[SIM_MODE_EXPERIMENTAL] = SPAWN_RULES[SIM_MODE_HYPER];
 
 SPAWN_RULES[SIM_MODE_WPAC] = function(b){
-    if(random()<0.005) b.spawn(false,{x:random(0.1*WIDTH,0.7*WIDTH),y:random(0.6*HEIGHT,0.9*HEIGHT),sType:'l'}); //tropics spawn area
+    if(random()<0.0075) b.spawn(false,{x:random(0.1*WIDTH,0.7*WIDTH),y:random(0.6*HEIGHT,0.9*HEIGHT),sType:'l'}); //tropics spawn area
     if(random()<0.01-0.002*seasonalSine(b.tick)) b.spawn(true);                 // extratropical cyclones
 };
 
@@ -128,7 +128,7 @@ ENV_DEFS.defaults.LLSteering = {
         // Jetstream
         let j = u.field('jetstream');
         // Cosine curve from 0 at poleward side of map to 1 at equatorward side
-        let h = map(cos(map(y,0,HEIGHT,0,PI)),-1.25,0.5,0.5,0);
+        let h = map(cos(map(y,0,HEIGHT,0,PI)),-1.25,0.625,0.625,0);
         // westerlies
         let west = constrain(pow(1-h+map(u.noise(0),0,1,-0.3,0.3)+map(j,0,HEIGHT,-0.3,0.3),2)*4,0,4);
         // ridging and trades
@@ -362,8 +362,8 @@ ENV_DEFS[SIM_MODE_EXPERIMENTAL].SSTAnomaly = {};
 ENV_DEFS[SIM_MODE_WPAC].SSTAnomaly = {
     mapFunc: (u,x,y,z)=>{
         let v = u.noise(0);
-        v = v*2.125;
-        let i = v<1 ? -0.50 : 0.50;
+        v = v*2;
+        let i = v<1 ? -1 : 1;
         v = 1-abs(1-v);
         if(v===0) v = 0.000001;
         v = log(v);
@@ -475,8 +475,8 @@ ENV_DEFS[SIM_MODE_WPAC].SST = {
     modifiers: {
         offSeasonPolarTemp: -3,
         peakSeasonPolarTemp: 0,
-        offSeasonTropicsTemp: 26,
-        peakSeasonTropicsTemp: 28,
+        offSeasonTropicsTemp: 27,
+        peakSeasonTropicsTemp: 27,
     }
 };   
 

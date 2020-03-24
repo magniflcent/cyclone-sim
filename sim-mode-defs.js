@@ -280,7 +280,7 @@ ENV_DEFS[SIM_MODE_MEGABLOBS].ULSteering = {};
 ENV_DEFS[SIM_MODE_EXPERIMENTAL].ULSteering = {};
 ENV_DEFS[SIM_MODE_WPAC].ULSteering = {
     modifiers: {
-        hadleyUpperBound: 3
+        hadleyUpperBound: 4
     }
 };
 

@@ -32,7 +32,7 @@ SPAWN_RULES[SIM_MODE_EXPERIMENTAL] = SPAWN_RULES[SIM_MODE_HYPER];
 
 SPAWN_RULES[SIM_MODE_WPAC] = function(b){
 	// tropic spawn area
-	if(random()<0.0032) b.spawn(false,{x:random(0.28*WIDTH,0.73*WIDTH),y:random(0.51*HEIGHT,0.76*HEIGHT),sType:'l'});		// main basin (t.o.cancer)
+	if(random()<0.0035) b.spawn(false,{x:random(0.28*WIDTH,0.73*WIDTH),y:random(0.51*HEIGHT,0.76*HEIGHT),sType:'l'});		// main basin (t.o.cancer)
 	if(random()<0.0025) b.spawn(false,{x:random(0.3*WIDTH,0.73*WIDTH),y:random(0.761*HEIGHT,0.9*HEIGHT),sType:'l'});		// main basin (equator)
 	if(random()<0.00025) b.spawn(false,{x:random(0.667*WIDTH,0.807*WIDTH),y:random(0.445*HEIGHT,0.509*HEIGHT),sType:'l'});	// southern japan
     if(random()<0.0006) b.spawn(false,{x:random(0.731*WIDTH,0.807*WIDTH),y:random(0.511*HEIGHT,0.787*HEIGHT),sType:'l'});   // basin edge, western IDL (t.o.cancer)
@@ -46,7 +46,7 @@ SPAWN_RULES[SIM_MODE_WPAC] = function(b){
 	if(random()<0.00025) b.spawn(false,{x:random(0.21*WIDTH,0.239*WIDTH),y:random(0.602*HEIGHT,0.649*HEIGHT),sType:'l'});	// southeastern china
 	if(random()<0.00015) b.spawn(false,{x:random(0.24*WIDTH,0.269*WIDTH),y:random(0.56*HEIGHT,0.635*HEIGHT),sType:'l'});	// taiwan coast
 	if(random()<0.00025) b.spawn(false,{x:random(0.245*WIDTH,0.269*WIDTH),y:random(0.636*HEIGHT,0.685*HEIGHT),sType:'l'});	// northern philippines
-	if(random()<0.00015) b.spawn(false,{x:random(0.266*WIDTH,0.301*WIDTH),y:random(0.761*HEIGHT,0.852*HEIGHT),sType:'l'});	// central philippines (eastern) 
+	if(random()<0.0002) b.spawn(false,{x:random(0.266*WIDTH,0.301*WIDTH),y:random(0.761*HEIGHT,0.852*HEIGHT),sType:'l'});	// central philippines (eastern) 
 	if(random()<0.00015) b.spawn(false,{x:random(0.245*WIDTH,0.265*WIDTH),y:random(0.761*HEIGHT,0.9*HEIGHT),sType:'l'});	// central philippines (western)
 	if(random()<0.01-0.002*seasonalSine(b.tick)) b.spawn(true);                 // extratropical cyclones
 };

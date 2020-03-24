@@ -49,7 +49,8 @@ SPAWN_RULES[SIM_MODE_WPAC] = function(b){
     if(random()<0.0002) b.spawn(false,{x:random(0.266*WIDTH,0.301*WIDTH),y:random(0.761*HEIGHT,0.852*HEIGHT),sType:'l'});	// central philippines (eastern) 
     if(random()<0.00015) b.spawn(false,{x:random(0.245*WIDTH,0.265*WIDTH),y:random(0.761*HEIGHT,0.9*HEIGHT),sType:'l'});	// central philippines (western)
     // extratropical cyclones
-    if(random()<0.01-0.002*seasonalSine(b.tick)) b.spawn(true);                                                                 
+    if(random()<0.01-0.002*seasonalSine(b.tick)) b.spawn(true);      
+};                                                           
 
 // ---- Definitions of Environmental Fields ---- //
 

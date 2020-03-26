@@ -128,7 +128,7 @@ ENV_DEFS.defaults.LLSteering = {
         // Jetstream
         let j = u.field('jetstream');
         // Cosine curve from 0 at poleward side of map to 1 at equatorward side
-        let h = map(cos(map(y,0,HEIGHT,0,PI)),-1.25,0.625,0.625,0);
+        let h = map(cos(map(y,0,HEIGHT,0,PI)),-1.25,0.5,0.5,0);
         // westerlies
         let west = constrain(pow(1-h+map(u.noise(0),0,1,-0.3,0.3)+map(j,0,HEIGHT,-0.3,0.3),2)*4,0,4);
         // ridging and trades
@@ -460,7 +460,7 @@ ENV_DEFS[SIM_MODE_WPAC].SST = {
         if(y<0) return 0;
         let anom = u.field('SSTAnomaly');
         let s = seasonalSine(z);
-        let w = map(cos(map(x,0,WIDTH,0,PI)),-0,0.2,0.8,0.8);
+        let w = map(cos(map(x,0,WIDTH,0,PI)),-0,-1,0.8,0.8);
         let h0 = y/HEIGHT;
         let h1 = (sqrt(h0)+h0)/2;
         let h2 = sqrt(sqrt(h0));

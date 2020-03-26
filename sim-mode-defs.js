@@ -385,7 +385,7 @@ ENV_DEFS.defaults.SST = {
         if(y<0) return 0;
         let anom = u.field('SSTAnomaly');
         let s = seasonalSine(z);
-        let w = map(cos(map(x,0,WIDTH,0,PI)),-0.9,0.9,0.9,0.9);
+        let w = map(cos(map(x,0,WIDTH,0,PI)),-1,1,1,1;
         let h0 = y/HEIGHT;
         let h1 = (sqrt(h0)+h0)/2;
         let h2 = sqrt(sqrt(h0));

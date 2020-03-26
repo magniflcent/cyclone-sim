@@ -13,7 +13,7 @@ const SIM_MODE_WPAC = 5;
 const SPAWN_RULES = {};
 
 SPAWN_RULES[SIM_MODE_NORMAL] = function(b){
-    if(random()<0.005*sq((seasonalSine(b.tick)+1)/2)) b.spawn(false); //tropics spawn area
+    if(random()<0.005) b.spawn(false,{x:random(0.1*WIDTH,0.7*WIDTH),y:random(0.7*HEIGHT,0.9*HEIGHT),sType:'l'})); //tropics spawn area
     if(random()<0.01-0.002*seasonalSine(b.tick)) b.spawn(true);                 // extratropical cyclones
 };
 SPAWN_RULES[SIM_MODE_HYPER] = function(b){

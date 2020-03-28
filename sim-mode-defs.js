@@ -138,7 +138,7 @@ ENV_DEFS.defaults.LLSteering = {
         // noise angle
         let a = map(u.noise(3),0,1,0,4*TAU);
         // noise magnitude
-        let m = pow(3,map(u.noise(2),0,1,-8,4));
+        let m = pow(5,map(u.noise(2),0,1,-8,4));
 
         // apply to vector
         u.vec.rotate(a);
@@ -417,7 +417,7 @@ ENV_DEFS.defaults.SST = {
     modifiers: {
         offSeasonPolarTemp: -3,
         peakSeasonPolarTemp: 0,
-        offSeasonTropicsTemp: 26,
+        offSeasonTropicsTemp: 25,
         peakSeasonTropicsTemp: 28
     }
 };

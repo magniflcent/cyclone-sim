@@ -138,7 +138,7 @@ ENV_DEFS.defaults.LLSteering = {
         // noise angle
         let a = map(u.noise(3),0,1,0,4*TAU);
         // noise magnitude
-        let m = pow(5,map(u.noise(2),0,1,-8,4));
+        let m = pow(1,map(u.noise(2),0,1,-8,4));
 
         // apply to vector
         u.vec.rotate(a);
@@ -312,7 +312,7 @@ ENV_DEFS.defaults.SSTAnomaly = {
     version: 0,
     mapFunc: (u,x,y,z)=>{
         let v = u.noise(0);
-        v = v*1.8125;
+        v = v*2;
         let i = v<1 ? -1 : 1;
         v = 1-abs(1-v);
         if(v===0) v = 0.000001;
@@ -418,7 +418,7 @@ ENV_DEFS.defaults.SST = {
         offSeasonPolarTemp: -3,
         peakSeasonPolarTemp: 0,
         offSeasonTropicsTemp: 25,
-        peakSeasonTropicsTemp: 28
+        peakSeasonTropicsTemp: 27
     }
 };
 ENV_DEFS[SIM_MODE_NORMAL].SST = {};

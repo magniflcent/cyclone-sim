@@ -32,12 +32,12 @@ SPAWN_RULES[SIM_MODE_EXPERIMENTAL] = SPAWN_RULES[SIM_MODE_HYPER];
 
 SPAWN_RULES[SIM_MODE_WPAC] = function(b){
     // tropic spawn area
-    if(random()<0.003) b.spawn(false,{x:random(0.28*WIDTH,0.73*WIDTH),y:random(0.51*HEIGHT,0.76*HEIGHT),sType:'l'});		// main basin (t.o.cancer)
-    if(random()<0.003) b.spawn(false,{x:random(0.3*WIDTH,0.73*WIDTH),y:random(0.761*HEIGHT,0.9*HEIGHT),sType:'l'});			// main basin (equator)
+    if(random()<0.0032) b.spawn(false,{x:random(0.28*WIDTH,0.73*WIDTH),y:random(0.51*HEIGHT,0.76*HEIGHT),sType:'l'});		// main basin (t.o.cancer)
+    if(random()<0.0032) b.spawn(false,{x:random(0.3*WIDTH,0.73*WIDTH),y:random(0.761*HEIGHT,0.9*HEIGHT),sType:'l'});			// main basin (equator)
     if(random()<0.0004) b.spawn(false,{x:random(0.667*WIDTH,0.807*WIDTH),y:random(0.445*HEIGHT,0.509*HEIGHT),sType:'l'});	// southern japan
     if(random()<0.0006) b.spawn(false,{x:random(0.731*WIDTH,0.807*WIDTH),y:random(0.511*HEIGHT,0.787*HEIGHT),sType:'l'});   // basin edge, western IDL (t.o.cancer)
     if(random()<0.0006) b.spawn(false,{x:random(0.731*WIDTH,0.807*WIDTH),y:random(0.788*HEIGHT,0.9*HEIGHT),sType:'l'});		// basin edge, western IDL (equator)
-    if(random()<0.00012) b.spawn(false,{x:random(0.808*WIDTH,0.98*WIDTH),y:random(0.55*HEIGHT,0.83*HEIGHT),sType:'l'});		// CPAC, eastern IDL (crossover etc)
+    if(random()<0.00015) b.spawn(false,{x:random(0.808*WIDTH,0.98*WIDTH),y:random(0.55*HEIGHT,0.83*HEIGHT),sType:'l'});		// CPAC, eastern IDL (crossover etc)
     if(random()<0.0004) b.spawn(false,{x:random(0.145*WIDTH,0.244*WIDTH),y:random(0.648*HEIGHT,0.84*HEIGHT),sType:'l'});	// northern SCS
     if(random()<0.00015) b.spawn(false,{x:random(0.145*WIDTH,0.244*WIDTH),y:random(0.841*HEIGHT,0.9*HEIGHT),sType:'l'});		// southern SCS
     if(random()<0.00012) b.spawn(false,{x:random(0.115*WIDTH,0.14*WIDTH),y:random(0.667*HEIGHT,0.695*HEIGHT),sType:'l'});	// gulf of tonkin
@@ -145,17 +145,17 @@ ENV_DEFS.defaults.LLSteering = {
         // Jetstream
         let j = u.field('jetstream');
         // Cosine curve from 0 at poleward side of map to 1 at equatorward side
-        let h = map(cos(map(y,0,HEIGHT,0,PI)),-1.25,0.5,0.5,0);
+        let h = map(cos(map(y,0,HEIGHT,0,PI)),-1.5,0.5,0.5,0);
         // westerlies
         let west = constrain(pow(1-h+map(u.noise(0),0,1,-0.4,0.4)+map(j,0,HEIGHT,-0.4,0.4),2)*4,0,4);
         // ridging and trades
         let ridging = constrain(u.noise(1)+map(j,0,HEIGHT,0.4,-0.4),0,1);
-        let trades = constrain(pow(0.35+h+map(ridging,0,1,-0.4,0.4),2)*3,0,3);
+        let trades = constrain(pow(0.5+h+map(ridging,0,1,-0.4,0.4),2)*3,0,3);
         let tAngle = map(h,0.9,1,511*PI/512,15.75*PI/16); // trades angle
         // noise angle
         let a = map(u.noise(3),0,1,0,4*TAU);
         // noise magnitude
-        let m = pow(4,map(u.noise(2),4,4,4,4));
+        let m = pow(4,map(u.noise(3),4,4,4,4));
         // apply to vector
         u.vec.rotate(a);
         u.vec.mult(m);
@@ -296,7 +296,7 @@ ENV_DEFS[SIM_MODE_MEGABLOBS].ULSteering = {};
 ENV_DEFS[SIM_MODE_EXPERIMENTAL].ULSteering = {};
 ENV_DEFS[SIM_MODE_WPAC].ULSteering = {
     modifiers: {
-        hadleyUpperBound: 4
+        hadleyUpperBound: 3.5
     }
 };
 
@@ -379,7 +379,7 @@ ENV_DEFS[SIM_MODE_WPAC].SSTAnomaly = {
     mapFunc: (u,x,y,z)=>{
         let v = u.noise(0);
         v = v*1.5;
-        let i = v<1 ? -0.6 : 0.6;
+        let i = v<1 ? -0.7 : 0.7;
         v = 1-abs(1-v);
         if(v===0) v = 0.000001;
         v = log(v);
@@ -489,9 +489,9 @@ ENV_DEFS[SIM_MODE_WPAC].SST = {
         return t+anom;
     },
     modifiers: {
-        offSeasonPolarTemp: -3,
         peakSeasonPolarTemp: 0,
-        offSeasonTropicsTemp: 26,
+        offSeasonPolarTemp: -3,
+        offSeasonTropicsTemp: 27,
         peakSeasonTropicsTemp: 30
     }
 };   

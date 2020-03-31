@@ -32,16 +32,18 @@ SPAWN_RULES[SIM_MODE_EXPERIMENTAL] = SPAWN_RULES[SIM_MODE_HYPER];
 
 SPAWN_RULES[SIM_MODE_WPAC] = function(b){
     // tropic spawn area
-    if(random()<0.0032) b.spawn(false,{x:random(0.28*WIDTH,0.73*WIDTH),y:random(0.51*HEIGHT,0.76*HEIGHT),sType:'l'});		// main basin (t.o.cancer)
-    if(random()<0.0032) b.spawn(false,{x:random(0.3*WIDTH,0.73*WIDTH),y:random(0.761*HEIGHT,0.9*HEIGHT),sType:'l'});			// main basin (equator)
-    if(random()<0.0004) b.spawn(false,{x:random(0.667*WIDTH,0.807*WIDTH),y:random(0.445*HEIGHT,0.509*HEIGHT),sType:'l'});	// southern japan
+    if(random()<0.002) b.spawn(false,{x:random(0.28*WIDTH,0.73*WIDTH),y:random(0.51*HEIGHT,0.76*HEIGHT),sType:'l'});		// main basin (t.o.cancer)
+    if(random()<0.0022) b.spawn(false,{x:random(0.3*WIDTH,0.73*WIDTH),y:random(0.761*HEIGHT,0.9*HEIGHT),sType:'l'});		// main basin (equator)
+	if(random()<0.0012) b.spawn(false,{x:random(0.28*WIDTH,0.73*WIDTH),y:random(0.51*HEIGHT,0.76*HEIGHT),sType:'l'});		// basin edge, philippines sea (t.o.cancer)
+    if(random()<0.001) b.spawn(false,{x:random(0.3*WIDTH,0.73*WIDTH),y:random(0.761*HEIGHT,0.9*HEIGHT),sType:'l'});			// basin edge, philippines sea (equator)
     if(random()<0.0006) b.spawn(false,{x:random(0.731*WIDTH,0.807*WIDTH),y:random(0.511*HEIGHT,0.787*HEIGHT),sType:'l'});   // basin edge, western IDL (t.o.cancer)
     if(random()<0.0006) b.spawn(false,{x:random(0.731*WIDTH,0.807*WIDTH),y:random(0.788*HEIGHT,0.9*HEIGHT),sType:'l'});		// basin edge, western IDL (equator)
+	if(random()<0.0004) b.spawn(false,{x:random(0.667*WIDTH,0.807*WIDTH),y:random(0.445*HEIGHT,0.509*HEIGHT),sType:'l'});	// southern japan
     if(random()<0.00015) b.spawn(false,{x:random(0.808*WIDTH,0.98*WIDTH),y:random(0.55*HEIGHT,0.83*HEIGHT),sType:'l'});		// CPAC, eastern IDL (crossover etc)
     if(random()<0.0004) b.spawn(false,{x:random(0.145*WIDTH,0.244*WIDTH),y:random(0.648*HEIGHT,0.84*HEIGHT),sType:'l'});	// northern SCS
-    if(random()<0.00015) b.spawn(false,{x:random(0.145*WIDTH,0.244*WIDTH),y:random(0.841*HEIGHT,0.9*HEIGHT),sType:'l'});		// southern SCS
+    if(random()<0.00015) b.spawn(false,{x:random(0.145*WIDTH,0.244*WIDTH),y:random(0.841*HEIGHT,0.9*HEIGHT),sType:'l'});	// southern SCS
     if(random()<0.00012) b.spawn(false,{x:random(0.115*WIDTH,0.14*WIDTH),y:random(0.667*HEIGHT,0.695*HEIGHT),sType:'l'});	// gulf of tonkin
-    if(random()<0.00005) b.spawn(false,{x:random(0.094*WIDTH,0.14*WIDTH),y:random(0.842*HEIGHT,0.91*HEIGHT),sType:'l'});		// southern vietnam
+    if(random()<0.00005) b.spawn(false,{x:random(0.094*WIDTH,0.14*WIDTH),y:random(0.842*HEIGHT,0.91*HEIGHT),sType:'l'});	// southern vietnam
     if(random()<0.00025) b.spawn(false,{x:random(0.182*WIDTH,0.209*WIDTH),y:random(0.62*HEIGHT,0.649*HEIGHT),sType:'l'});	// southern china
     if(random()<0.00025) b.spawn(false,{x:random(0.21*WIDTH,0.239*WIDTH),y:random(0.602*HEIGHT,0.649*HEIGHT),sType:'l'});	// southeastern china
     if(random()<0.00015) b.spawn(false,{x:random(0.24*WIDTH,0.269*WIDTH),y:random(0.56*HEIGHT,0.635*HEIGHT),sType:'l'});	// taiwan coast
@@ -92,7 +94,10 @@ ENV_DEFS[SIM_MODE_WPAC] = {}; // "WPAC" simulation mode
 // ENV_DEFS[SIM_MODE_WILD].sample = {};
 // ENV_DEFS[SIM_MODE_MEGABLOBS].sample = {};
 // ENV_DEFS[SIM_MODE_EXPERIMENTAL].sample = {};
-
+// randomize
+function randf(min, max) {
+  return Math.random() * (max - min) + min;
+}
 // -- jetstream -- //
 
 ENV_DEFS.defaults.jetstream = {
@@ -262,7 +267,6 @@ ENV_DEFS[SIM_MODE_WILD].ULSteering = {
         const dx = 10;                                                                  // delta-x for jetstream differential (used for calculating wind direction in and near jetstream)
 
         let m = u.noise(1);
-
         let s = u.yearfrac(z);
         let j0 = u.field('jetstream');                                                  // y-position of jetstream
         let j1 = u.field('jetstream',x+dx);                                             // y-position of jetstream dx to the east for differential
@@ -296,10 +300,21 @@ ENV_DEFS[SIM_MODE_MEGABLOBS].ULSteering = {};
 ENV_DEFS[SIM_MODE_EXPERIMENTAL].ULSteering = {};
 ENV_DEFS[SIM_MODE_WPAC].ULSteering = {
     modifiers: {
-        hadleyUpperBound: 3.5
+        hadleyUpperBound: 4
     }
 };
 
+// -- steering hell -- //
+
+/*	
+let hadley = '(u.piecewise(s,[[1,randf(2.5,4)],[1.25,randf(2.5,4)],[1.5,randf(2.5,4)],[1.75,randf(2.5,4)],[2,randf(1.5,4)],[2.25,randf(1.5,4)],[2.5,randf(1.5,4)],[2.75,randf(1.5,4)], '
+	+ '[3,randf(0.75,3)],[3.25,randf(0.75,3)],[3.5,randf(0.75,3)],[3.75,randf(0.75,3)],[4,randf(0.5,2)],[4.25,randf(0.5,2)],[4.5,randf(0.5,2)],[4.75,randf(0.5,2)],'
+	+ '[5,randf(0.6,1.5)],[5.25,randf(0.6,1.5)],[5.5,randf(0.6,1.5)],[5.75,randf(0.6,1.5)],[6,randf(0.25,2)],[6.5,randf(0.25,2)],[6.5,randf(0.25,2)],[6.75,randf(0.25,2)],'
+	+ '[7,randf(0.05,1)],[7.25,randf(0.05,1)],[7.5,randf(0.05,1)],[7.75,randf(0.05,1)],[8,randf(0.03,1.25)],[8.25,randf(0.03,1.25)],[8.5,randf(0.03,1)],[8.75,randf(0.03,1)],'
+	+ '[9,randf(0.05,0.8)],[9.25,randf(0.01,1)],[9.5,randf(0.03,0.75)],[9.75,randf(0.1,1)],[10,randf(0.4,3)],[10.25,randf(0.6,3.5)],[10.5,randf(0.5,2.5)],[10.75,randf(1,3)],'
+	+ '[11,randf(1.5,3.5)],[11.25,randf(1,3)],[11.5,randf(1.5,3.5)],[11.75,randf(2,4)],[12,randf(1.5,4)],[12.25,randf(2,3.5)],[12.5,randf(1.25,3.75)],[12.75,randf(3,4)]]))*jOP*(y>j0?1:0);'
+*/
+	
 // -- shear -- //
 
 ENV_DEFS.defaults.shear = {
@@ -378,8 +393,8 @@ ENV_DEFS[SIM_MODE_EXPERIMENTAL].SSTAnomaly = {};
 ENV_DEFS[SIM_MODE_WPAC].SSTAnomaly = {
     mapFunc: (u,x,y,z)=>{
         let v = u.noise(0);
-        v = v*1.5;
-        let i = v<1 ? -0.6 : 1;
+        v = v*1.75;
+        let i = v<1 ? -0.6 : 0.6;
         v = 1-abs(1-v);
         if(v===0) v = 0.000001;
         v = log(v);

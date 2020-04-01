@@ -576,4 +576,3 @@ ENV_DEFS[SIM_MODE_WPAC].moisture = {
         tropicalMoisture: 0.72,
         mountainMoisture: 0
     }
-};

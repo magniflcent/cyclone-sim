@@ -38,7 +38,7 @@ SPAWN_RULES[SIM_MODE_WPAC] = function(b){
     if(random()<0.00075) b.spawn(false,{x:random(0.3*WIDTH,0.73*WIDTH),y:random(0.761*HEIGHT,0.9*HEIGHT),sType:'l'});		// basin edge, philippines sea (equator)
     if(random()<0.0004) b.spawn(false,{x:random(0.731*WIDTH,0.807*WIDTH),y:random(0.511*HEIGHT,0.787*HEIGHT),sType:'l'});   // basin edge, western IDL (t.o.cancer)
     if(random()<0.0004) b.spawn(false,{x:random(0.731*WIDTH,0.807*WIDTH),y:random(0.788*HEIGHT,0.9*HEIGHT),sType:'l'});		// basin edge, western IDL (equator)
-	if(random()<0.00025) b.spawn(false,{x:random(0.667*WIDTH,0.807*WIDTH),y:random(0.445*HEIGHT,0.509*HEIGHT),sType:'l'});	// southern japan
+	if(random()<0.0003) b.spawn(false,{x:random(0.667*WIDTH,0.807*WIDTH),y:random(0.445*HEIGHT,0.509*HEIGHT),sType:'l'});	// southern japan
     if(random()<0.0001) b.spawn(false,{x:random(0.808*WIDTH,0.98*WIDTH),y:random(0.55*HEIGHT,0.83*HEIGHT),sType:'l'});		// CPAC, eastern IDL (crossover etc)
     if(random()<0.00025) b.spawn(false,{x:random(0.145*WIDTH,0.244*WIDTH),y:random(0.648*HEIGHT,0.84*HEIGHT),sType:'l'});	// northern SCS
     if(random()<0.0001) b.spawn(false,{x:random(0.145*WIDTH,0.244*WIDTH),y:random(0.841*HEIGHT,0.9*HEIGHT),sType:'l'});	// southern SCS
@@ -46,10 +46,10 @@ SPAWN_RULES[SIM_MODE_WPAC] = function(b){
     if(random()<0.00002) b.spawn(false,{x:random(0.094*WIDTH,0.14*WIDTH),y:random(0.842*HEIGHT,0.91*HEIGHT),sType:'l'});	// southern vietnam
     if(random()<0.00015) b.spawn(false,{x:random(0.182*WIDTH,0.209*WIDTH),y:random(0.62*HEIGHT,0.649*HEIGHT),sType:'l'});	// southern china
     if(random()<0.00015) b.spawn(false,{x:random(0.21*WIDTH,0.239*WIDTH),y:random(0.602*HEIGHT,0.649*HEIGHT),sType:'l'});	// southeastern china
-    if(random()<0.0001) b.spawn(false,{x:random(0.24*WIDTH,0.269*WIDTH),y:random(0.56*HEIGHT,0.635*HEIGHT),sType:'l'});	// taiwan coast
-    if(random()<0.00015) b.spawn(false,{x:random(0.245*WIDTH,0.269*WIDTH),y:random(0.636*HEIGHT,0.685*HEIGHT),sType:'l'});	// northern philippines
-    if(random()<0.00015) b.spawn(false,{x:random(0.266*WIDTH,0.301*WIDTH),y:random(0.761*HEIGHT,0.852*HEIGHT),sType:'l'});	// central philippines (eastern) 
-    if(random()<0.0001) b.spawn(false,{x:random(0.245*WIDTH,0.265*WIDTH),y:random(0.761*HEIGHT,0.9*HEIGHT),sType:'l'});	// central philippines (western)
+    if(random()<0.00015) b.spawn(false,{x:random(0.24*WIDTH,0.269*WIDTH),y:random(0.56*HEIGHT,0.635*HEIGHT),sType:'l'});	// taiwan coast
+    if(random()<0.0002) b.spawn(false,{x:random(0.245*WIDTH,0.269*WIDTH),y:random(0.636*HEIGHT,0.685*HEIGHT),sType:'l'});	// northern philippines
+    if(random()<0.0002) b.spawn(false,{x:random(0.266*WIDTH,0.301*WIDTH),y:random(0.761*HEIGHT,0.852*HEIGHT),sType:'l'});	// central philippines (eastern) 
+    if(random()<0.00012) b.spawn(false,{x:random(0.245*WIDTH,0.265*WIDTH),y:random(0.761*HEIGHT,0.9*HEIGHT),sType:'l'});	// central philippines (western)
     // extratropical cyclones
     if(random()<0.01-0.002*seasonalSine(b.tick)) b.spawn(true);      
 };                                                           
@@ -223,9 +223,9 @@ ENV_DEFS.defaults.ULSteering = {
         let tAngle = -PI/16;                                                                    // angle of push from jetstream dips
         let ridging = 0.45-j0/HEIGHT-map(sqrt(map(s,-1,1,0,1)),0,1,0.15,0);                     // how much 'ridge' or 'trough' there is from jetstream
         // power of winds equatorward of jetstream
-        let hadley = (map(ridging,-0.3,0.2,u.modifiers.hadleyUpperBound,1.5,true)+map(m,0,1,-1.5,1.5))*jOP*(y>j0?1:0);
+        let hadley = (map(ridging,-0.3,0.25,u.modifiers.hadleyUpperBound,1.5,true)+map(m,0,1,-1.5,1.5))*jOP*(y>j0?1:0);
         // angle of winds equatorward of jetstream
-        let hAngle = map(ridging,-0.3,0.3,-PI/16,-15*PI/16,true);
+        let hAngle = map(ridging,-0.3,0.25,-PI/16,-15*PI/16,true);
         let ferrel = 2*jOP*(y<j0?1:0);                                                          // power of winds poleward of jetstream
         let fAngle = 5*PI/8;                                                                    // angle of winds poleward of jetstream
 
@@ -393,14 +393,14 @@ ENV_DEFS[SIM_MODE_EXPERIMENTAL].SSTAnomaly = {};
 ENV_DEFS[SIM_MODE_WPAC].SSTAnomaly = {
     mapFunc: (u,x,y,z)=>{
         let v = u.noise(0);
-        v = v*1.75;
+        v = v*1.8;
         let i = v<1 ? -0.6 : 0.6;
         v = 1-abs(1-v);
         if(v===0) v = 0.000001;
         v = log(v);
         let r;
         if(u.modifiers.r!==undefined) r = u.modifiers.r;
-        else r = map(y,0,HEIGHT,3,6);
+        else r = map(y,1,HEIGHT,3,6);
         v = -r*v;
         v = v*i;
         if(u.modifiers.bigBlobBase!==undefined && v>u.modifiers.bigBlobExponentThreshold) v += pow(u.modifiers.bigBlobBase,v-u.modifiers.bigBlobExponentThreshold)-1;

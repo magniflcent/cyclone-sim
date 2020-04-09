@@ -34,8 +34,8 @@ SPAWN_RULES[SIM_MODE_WPAC] = function(b){
     // tropic spawn area
     if(random()<0.0015) b.spawn(false, {x:random(0.28*WIDTH,0.73*WIDTH),y:random(0.51*HEIGHT,0.76*HEIGHT),sType:'l'});		// main basin (t.o.cancer)
     if(random()<0.0015) b.spawn(false,{x:random(0.3*WIDTH,0.73*WIDTH),y:random(0.761*HEIGHT,0.9*HEIGHT),sType:'l'});		// main basin (equator)
-	if(random()<0.0001) b.spawn(false,{x:random(0.28*WIDTH,0.73*WIDTH),y:random(0.51*HEIGHT,0.76*HEIGHT),sType:'l'});		// basin edge, philippines sea (t.o.cancer)
-    if(random()<0.0001) b.spawn(false,{x:random(0.3*WIDTH,0.73*WIDTH),y:random(0.761*HEIGHT,0.9*HEIGHT),sType:'l'});		// basin edge, philippines sea (equator)
+	if(random()<0.001) b.spawn(false,{x:random(0.28*WIDTH,0.73*WIDTH),y:random(0.51*HEIGHT,0.76*HEIGHT),sType:'l'});		// basin edge, philippines sea (t.o.cancer)
+    if(random()<0.001) b.spawn(false,{x:random(0.3*WIDTH,0.73*WIDTH),y:random(0.761*HEIGHT,0.9*HEIGHT),sType:'l'});		// basin edge, philippines sea (equator)
     if(random()<0.0004) b.spawn(false,{x:random(0.731*WIDTH,0.807*WIDTH),y:random(0.511*HEIGHT,0.787*HEIGHT),sType:'l'});   // basin edge, western IDL (t.o.cancer)
     if(random()<0.0004) b.spawn(false,{x:random(0.731*WIDTH,0.807*WIDTH),y:random(0.788*HEIGHT,0.9*HEIGHT),sType:'l'});		// basin edge, western IDL (equator)
 	if(random()<0.0003) b.spawn(false,{x:random(0.667*WIDTH,0.807*WIDTH),y:random(0.445*HEIGHT,0.509*HEIGHT),sType:'l'});	// southern japan
@@ -494,7 +494,7 @@ ENV_DEFS[SIM_MODE_WPAC].SST = {
         let w = map(cos(map(x,0,WIDTH,0,PI)),0,0.8,0.8,0.8);
         let h0 = y/HEIGHT;
         let h1 = (sqrt(h0)+h0)/3;
-        let h2 = sqrt(sqrt(h0))*1.2;
+        let h2 = sqrt(sqrt(h0))*1.25;
         let h = map(cos(lerp(PI,0,lerp(h1,h2,sq(w)))),-1,1,0,1);
         let ospt = u.modifiers.offSeasonPolarTemp;
         let pspt = u.modifiers.peakSeasonPolarTemp;
@@ -507,7 +507,7 @@ ENV_DEFS[SIM_MODE_WPAC].SST = {
         peakSeasonPolarTemp: 0,
         offSeasonPolarTemp: -3,
         offSeasonTropicsTemp: 27,
-        peakSeasonTropicsTemp: 30
+        peakSeasonTropicsTemp: 29
     }
 };   
 

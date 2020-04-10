@@ -572,8 +572,8 @@ ENV_DEFS[SIM_MODE_MEGABLOBS].moisture = {};
 ENV_DEFS[SIM_MODE_EXPERIMENTAL].moisture = {};
 ENV_DEFS[SIM_MODE_WPAC].moisture = {
     modifiers: {
-        polarMoisture: 0.52,
-        tropicalMoisture: 0.72,
+        polarMoisture: 0.48,
+        tropicalMoisture: 0.75,
         mountainMoisture: 0
     }
 };

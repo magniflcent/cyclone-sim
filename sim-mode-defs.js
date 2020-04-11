@@ -410,7 +410,7 @@ ENV_DEFS[SIM_MODE_WPAC].SSTAnomaly = {
 
 // -- SST -- //
 
-
+ENV_DEFS.defaults.SST = {
     version: 0,
     mapFunc: (u,x,y,z)=>{
         if(y<0) return 0;

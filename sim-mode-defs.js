@@ -410,7 +410,7 @@ ENV_DEFS[SIM_MODE_WPAC].SSTAnomaly = {
 
 // -- SST -- //
 
-ENV_DEFS.defaults.SST = {
+
     version: 0,
     mapFunc: (u,x,y,z)=>{
         if(y<0) return 0;
@@ -572,8 +572,8 @@ ENV_DEFS[SIM_MODE_MEGABLOBS].moisture = {};
 ENV_DEFS[SIM_MODE_EXPERIMENTAL].moisture = {};
 ENV_DEFS[SIM_MODE_WPAC].moisture = {
     modifiers: {
-        polarMoisture: 0.52,
-        tropicalMoisture: 0.72,
+        polarMoisture: 0.45,
+        tropicalMoisture: 0.75,
         mountainMoisture: 0
     }
 };

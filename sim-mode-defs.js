@@ -394,7 +394,7 @@ ENV_DEFS[SIM_MODE_WPAC].SSTAnomaly = {
     mapFunc: (u,x,y,z)=>{
         let v = u.noise(0);
         v = v*1.8;
-        let i = v<1 ? -0.5 : 0.75;
+        let i = v<1 ? -0.5 : 1;
         v = 1-abs(1-v);
         if(v===0) v = 0.000001;
         v = log(v);
@@ -493,7 +493,7 @@ ENV_DEFS[SIM_MODE_WPAC].SST = {
         let s = seasonalSine(z);
         let w = map(cos(map(x,0,WIDTH,0,PI)),0,0.8,0.8,0.8);
         let h0 = y/HEIGHT;
-        let h1 = (sqrt(h0)+h0)/3;
+        let h1 = (sqrt(h0)+h0)/3.25;
         let h2 = sqrt(sqrt(h0))*1.25;
         let h = map(cos(lerp(PI,0,lerp(h1,h2,sq(w)))),-1,1,0,1);
         let ospt = u.modifiers.offSeasonPolarTemp;

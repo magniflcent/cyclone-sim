@@ -393,7 +393,7 @@ ENV_DEFS[SIM_MODE_EXPERIMENTAL].SSTAnomaly = {};
 ENV_DEFS[SIM_MODE_WPAC].SSTAnomaly = {
     mapFunc: (u,x,y,z)=>{
         let v = u.noise(0);
-        v = v*1.875;
+        v = v*1.8;
         let i = v<1 ? -0.5 : 1;
         v = 1-abs(1-v);
         if(v===0) v = 0.000001;
@@ -507,7 +507,7 @@ ENV_DEFS[SIM_MODE_WPAC].SST = {
         peakSeasonPolarTemp: 0,
         offSeasonPolarTemp: -3,
         offSeasonTropicsTemp: 27,
-        peakSeasonTropicsTemp: 29
+        peakSeasonTropicsTemp: 29.5
     }
 };   
 

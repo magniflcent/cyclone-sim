@@ -32,24 +32,24 @@ SPAWN_RULES[SIM_MODE_EXPERIMENTAL] = SPAWN_RULES[SIM_MODE_HYPER];
 
 SPAWN_RULES[SIM_MODE_WPAC] = function(b){
     // tropic spawn area
-    if(random()<0.0015) b.spawn(false, {x:random(0.28*WIDTH,0.73*WIDTH),y:random(0.51*HEIGHT,0.76*HEIGHT),sType:'l'});		// main basin (t.o.cancer)
-    if(random()<0.0015) b.spawn(false,{x:random(0.3*WIDTH,0.73*WIDTH),y:random(0.761*HEIGHT,0.9*HEIGHT),sType:'l'});		// main basin (equator)
+    if(random()<0.0012) b.spawn(false, {x:random(0.28*WIDTH,0.73*WIDTH),y:random(0.51*HEIGHT,0.76*HEIGHT),sType:'l'});		// main basin (t.o.cancer)
+    if(random()<0.0012) b.spawn(false,{x:random(0.3*WIDTH,0.73*WIDTH),y:random(0.761*HEIGHT,0.9*HEIGHT),sType:'l'});		// main basin (equator)
 	if(random()<0.001) b.spawn(false,{x:random(0.28*WIDTH,0.73*WIDTH),y:random(0.51*HEIGHT,0.76*HEIGHT),sType:'l'});		// basin edge, philippines sea (t.o.cancer)
-    if(random()<0.001) b.spawn(false,{x:random(0.3*WIDTH,0.73*WIDTH),y:random(0.761*HEIGHT,0.9*HEIGHT),sType:'l'});		// basin edge, philippines sea (equator)
+    if(random()<0.001) b.spawn(false,{x:random(0.3*WIDTH,0.73*WIDTH),y:random(0.761*HEIGHT,0.9*HEIGHT),sType:'l'});			// basin edge, philippines sea (equator)
     if(random()<0.0004) b.spawn(false,{x:random(0.731*WIDTH,0.807*WIDTH),y:random(0.511*HEIGHT,0.787*HEIGHT),sType:'l'});   // basin edge, western IDL (t.o.cancer)
     if(random()<0.0004) b.spawn(false,{x:random(0.731*WIDTH,0.807*WIDTH),y:random(0.788*HEIGHT,0.9*HEIGHT),sType:'l'});		// basin edge, western IDL (equator)
 	if(random()<0.0003) b.spawn(false,{x:random(0.667*WIDTH,0.807*WIDTH),y:random(0.445*HEIGHT,0.509*HEIGHT),sType:'l'});	// southern japan
     if(random()<0.0001) b.spawn(false,{x:random(0.808*WIDTH,0.98*WIDTH),y:random(0.55*HEIGHT,0.83*HEIGHT),sType:'l'});		// CPAC, eastern IDL (crossover etc)
     if(random()<0.00025) b.spawn(false,{x:random(0.145*WIDTH,0.244*WIDTH),y:random(0.648*HEIGHT,0.84*HEIGHT),sType:'l'});	// northern SCS
-    if(random()<0.0001) b.spawn(false,{x:random(0.145*WIDTH,0.244*WIDTH),y:random(0.841*HEIGHT,0.9*HEIGHT),sType:'l'});	// southern SCS
-    if(random()<0.00008) b.spawn(false,{x:random(0.115*WIDTH,0.14*WIDTH),y:random(0.667*HEIGHT,0.695*HEIGHT),sType:'l'});	// gulf of tonkin
-    if(random()<0.00002) b.spawn(false,{x:random(0.094*WIDTH,0.14*WIDTH),y:random(0.842*HEIGHT,0.91*HEIGHT),sType:'l'});	// southern vietnam
+    if(random()<0.0001) b.spawn(false,{x:random(0.145*WIDTH,0.244*WIDTH),y:random(0.841*HEIGHT,0.9*HEIGHT),sType:'l'});		// southern SCS
+    if(random()<0.0001) b.spawn(false,{x:random(0.115*WIDTH,0.14*WIDTH),y:random(0.667*HEIGHT,0.695*HEIGHT),sType:'l'});	// gulf of tonkin
+    if(random()<0.00005) b.spawn(false,{x:random(0.094*WIDTH,0.14*WIDTH),y:random(0.842*HEIGHT,0.91*HEIGHT),sType:'l'});	// southern vietnam
     if(random()<0.00015) b.spawn(false,{x:random(0.182*WIDTH,0.209*WIDTH),y:random(0.62*HEIGHT,0.649*HEIGHT),sType:'l'});	// southern china
     if(random()<0.00015) b.spawn(false,{x:random(0.21*WIDTH,0.239*WIDTH),y:random(0.602*HEIGHT,0.649*HEIGHT),sType:'l'});	// southeastern china
     if(random()<0.00015) b.spawn(false,{x:random(0.24*WIDTH,0.269*WIDTH),y:random(0.56*HEIGHT,0.635*HEIGHT),sType:'l'});	// taiwan coast
     if(random()<0.0002) b.spawn(false,{x:random(0.245*WIDTH,0.269*WIDTH),y:random(0.636*HEIGHT,0.685*HEIGHT),sType:'l'});	// northern philippines
     if(random()<0.0002) b.spawn(false,{x:random(0.266*WIDTH,0.301*WIDTH),y:random(0.761*HEIGHT,0.852*HEIGHT),sType:'l'});	// central philippines (eastern) 
-    if(random()<0.00012) b.spawn(false,{x:random(0.245*WIDTH,0.265*WIDTH),y:random(0.761*HEIGHT,0.9*HEIGHT),sType:'l'});	// central philippines (western)
+    if(random()<0.00015) b.spawn(false,{x:random(0.245*WIDTH,0.265*WIDTH),y:random(0.761*HEIGHT,0.9*HEIGHT),sType:'l'});	// central philippines (western)
     // extratropical cyclones
     if(random()<0.01-0.002*seasonalSine(b.tick)) b.spawn(true);      
 };                                                           

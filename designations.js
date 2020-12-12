@@ -151,7 +151,7 @@ class DesignationSystem{
         // whether naming should be annual (Atl/EPac/SWIO/PAGASA) or continuous (WPac/CPac/Aus/etc.)
         this.naming.annual = opts.annual;
         // the year to anchor the cycle of annual lists to (this year will use the #0 (first) name list)
-        this.naming.annualAnchorYear = opts.anchor===true ? 1979 : opts.anchor;
+        this.naming.annualAnchorYear = opts.anchor===undefined ? 1979 : opts.anchor;
         // counter for continuous name assignment (only applicable to continuous naming)
         this.naming.continuousNameIndex = opts.indexOffset || 0;
         // scale category threshold for naming a system (overrides Scale.namingThreshold)
